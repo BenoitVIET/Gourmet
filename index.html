@@ -4,15 +4,17 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Accueil</title>
-        <link rel="shortcut icon" href="assets/log.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="assets/icons/logo.jpg" type="image/x-icon" />
         <script defer src="main.js"></script>
-        <script defer src="subject/utils.js"></script>
-        <script defer src="subject/recettes-data.js"></script>
-        <script defer src="subject/api-functions.js"></script>
-        <script defer src="subject/favorites-manager.js"></script>
-        <script defer src="subject/recipe-display.js"></script>
-        <script defer src="subject/app-init.js"></script>
+        <script defer src="js/utils.js"></script>
+        <script defer src="js/recettes-data.js"></script>
+        <script defer src="js/api-functions.js"></script>
+        <script defer src="js/favorites-manager.js"></script>
+        <script defer src="js/recipe-display.js"></script>
+        <script defer src="js/app-init.js"></script>
         <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="css/benoit.css" />
+        <link rel="stylesheet" href="css/laura.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -25,14 +27,14 @@
             <nav>
                 <ul class="toggle">
                     <li class="closeBtnMenu">
-                        <img src="assets/close.png" alt="close menu button" />
+                        <img src="assets/icons/menu-burger.png" alt="close menu button" />
                     </li>
                     <li><a href="index.html">Accueil</a></li>
                     <li>
                         <a href="#">Ajouter une recette</a>
                     </li>
-                    <li><a href="others/favoris.html">Mes favoris</a></li>
-                    <li><a href="others/aPropos.html">À propos</a></li>
+                    <li><a href="html/favoris.html">Mes favoris</a></li>
+                    <li><a href="html/a_propos.html">À propos</a></li>
                 </ul>
 
                 <section class="title">
@@ -44,12 +46,12 @@
                     <li>
                         <a href="#">Ajouter une recette</a>
                     </li>
-                    <li><a href="others/favoris.html">Mes favoris</a></li>
-                    <li><a href="others/aPropos.html">À propos</a></li>
+                    <li><a href="html/favoris.html">Mes favoris</a></li>
+                    <li><a href="html/a_propos.html">À propos</a></li>
                     <li>
                         <img
                             class="burgerBtn"
-                            src="assets/menu-burger.png"
+                            src="assets/icons/menu-burger.png"
                             alt="menu burger"
                         />
                     </li>
@@ -57,12 +59,12 @@
 
                 <div class="picto">
                     <img
-                        src="assets/moon.png"
+                        src="assets/icons/moon.png"
                         alt="change light mode"
                         id="moon"
                     />
                     <img
-                        src="assets/sunny.png"
+                        src="assets/icons/sunny.png"
                         alt="change light mode"
                         id="sun"
                     />
@@ -186,9 +188,11 @@
                         <img class="mealPic" src="" alt=""/>
                         <img
                             class="heart-button"
-                            src="assets/grayHeart.png"
-                            alt="gray heart"
-                        />
+                            src="assets/icons/grayHeart.jpg"
+                         alt="Favori"
+                         onclick="window.handleToggleFavorite()"
+                         style="cursor: pointer;">
+
                         <div class="recepiePresentation recette-header-index">
                             <h3></h3>
                             <div class="infoRecepie">
@@ -196,7 +200,7 @@
                                 <p class="recepieTime"></p>
                                 <p class="recepieLevel"></p>
                             </div>
-                             <button class="recetteButton" onclick="window.location.href='others/recettes.html?recette=hummus'">Voir la recette</button>
+                            <button class="recetteButton" onclick="window.location.href='html/recettes.html?recette=hummus'">
                                 Voir la recette
                             </button>
                         </div>
@@ -222,14 +226,14 @@
                         </li>
                         <li class="footer-nav-item">
                             <a
-                                href="others/favoris.html"
+                                href="html/favoris.html"
                                 class="footer-nav-link"
                                 >Mes favoris</a
                             >
                         </li>
                         <li class="footer-nav-item">
                             <a
-                                href="others/a_propos.html"
+                                href="html/a_propos.html"
                                 class="footer-nav-link"
                                 >À propos</a
                             >
