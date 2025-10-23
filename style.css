@@ -1,0 +1,876 @@
+/* -----------
+main page 
+----------- */
+*,
+::after,
+::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    list-style-type: none;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: var(--fontOxygen);
+    font-weight: 100;
+    color: var(--color2);
+}
+body {
+    position: relative;
+    background-color: var(--color1);
+}
+
+:root {
+    --color1: #ffffff;
+    --color2: #000000;
+    --color3: #e67f21;
+    --color4: #f9f9f9;
+    --color5: #3197de;
+    --color6: #2fce72;
+    --colorquestions: #e67f21;
+    --fontRubik: "Rubik", sans-serif;
+    --fontPrompt: "Prompt", sans-serif;
+    --fontOxygen: "Oxygen", sans-serif;
+    --colorDark1: #fefefe;
+    --colorDark2: #1c1c1e;
+    --colorDark4: #545151;
+}
+/* ******************************
+========================
+ dark mode  
+ ========================
+****************************** */
+body.dark {
+    --color1: #1c1c1e;
+    --color2: #c7c1c1;
+    --color3: #995d25;
+    --color4: #302f2f;
+    --color5: #266d9f;
+    --color6: #269353;
+    --colorquestions: #1c1c1e;
+}
+body.dark img {
+    filter: grayscale(30%);
+}
+
+/* header  */
+header {
+    width: 98%;
+    margin: auto;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 7px 1px #938989;
+    border-radius: 5px;
+    position: fixed;
+    z-index: 1;
+    top: 35px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color1);
+}
+
+/* nav bar */
+.toggle {
+    background-color: var(--color3);
+    position: fixed;
+    height: 100lvh;
+    width: 25vw;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.toggle.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 0.5s ease-in, opacity 0.5s ease-in, visibility 0.5s;
+}
+
+.toggle.activeClose {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(0);
+    transition: transform 0.5s ease-in, opacity 0.5s ease-in, visibility 0.5s;
+}
+
+.toggle li img {
+    height: 16px;
+}
+
+.toggle li img:hover,
+.menuList li img:hover {
+    cursor: pointer;
+}
+
+.closeBtnMenu {
+    width: fit-content;
+}
+
+.closeBtnMenu:hover {
+    transform: rotate(180deg) scale(1.5);
+    transition: 1s;
+}
+
+.burgerBtn {
+    position: absolute;
+    right: 3.5rem;
+    top: 0.7rem;
+    height: 20px;
+    background-color: var(--color4);
+    border-radius: 20px;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    display: none;
+    z-index: 999;
+}
+
+.toggle li {
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+}
+
+.title div {
+    background-color: var(--color3);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    font-size: 0.8em;
+}
+
+.title div a {
+    color: var(--color1);
+}
+
+.title div:hover {
+    cursor: pointer;
+}
+
+.title h1 {
+    color: var(--color3);
+    padding: 10px;
+    font-size: 1.1em;
+    font-family: var(--fontRubik);
+    font-weight: 600;
+    text-shadow: 1px -1px 0 var(--color1), 1px -1px 0 var(--color2),
+        -1px 1px 0 var(--color2), 1px 1px 0 var(--color1);
+}
+
+.menuList {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.menuList li {
+    font-size: 0.8em;
+    font-weight: 400;
+    font-family: var(--fontPrompt);
+}
+
+.menuList li:hover,
+.footer-nav-list li:hover {
+    font-size: 0.9em;
+    transition: 0.5s;
+}
+.menuList li a:hover,
+.footer-nav-list li a:hover {
+    font-size: 1em;
+    transition: 0.6s;
+    color: var(--color3);
+}
+.toggle li a:hover {
+    font-size: 1.5em;
+    transition: 0.7s;
+    color: var(--color1);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+nav button {
+    width: 20px;
+    height: 20px;
+}
+
+a {
+    color: var(--color2);
+}
+
+#moon {
+    width: 35px;
+    height: 35px;
+    background-color: var(--color4);
+    border-radius: 50px;
+    padding: 8px;
+    display: block;
+}
+
+#moon:hover,
+#sun:hover {
+    background-color: color-mix(in srgb, var(--color4) 90%, black);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#sun {
+    width: 35px;
+    height: 35px;
+    background-color: var(--color4);
+    border-radius: 50px;
+    padding: 8px;
+    display: none;
+}
+
+/* main filter  */
+
+.recepie {
+    width: 98%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 7px 1px #938989;
+    border-radius: 5px;
+}
+
+.filters {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.recepie form {
+    width: 95%;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#recepieSearch {
+    width: 80%;
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #cdc6c6;
+    color: #8d8989;
+    border-radius: 2px;
+    background-color: var(--color1);
+}
+
+#recepieSearch:focus {
+    outline: none;
+}
+
+form button {
+    width: 19%;
+    background-color: var(--color3);
+    border: none;
+    margin: 10px 0;
+    color: var(--color1);
+    font-size: 0.7em;
+    border-radius: 2px;
+}
+
+form button:hover {
+    transition: 0.6s;
+    background-color: color-mix(in srgb, var(--color3) 20%, white);
+    color: var(--color3);
+    cursor: pointer;
+}
+
+/* filers  */
+
+.filterMain {
+    background-color: var(--color4);
+    margin: 5px;
+    padding: 10px;
+    min-width: 15vw;
+}
+
+.filterMain h2 {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-family: var(--fontPrompt);
+}
+.filterMain ul li label {
+    font-size: 0.7em;
+}
+.filterMain ul li input {
+    width: 10px;
+    margin: 3px;
+}
+
+.filterMain .entryFilter li input {
+    accent-color: var(--color3);
+    border: none;
+}
+.filterMain .prepTimeFilter li input {
+    accent-color: var(--color6);
+}
+.filterMain .difficultyFilter li input {
+    accent-color: var(--color5);
+}
+.filterMain ul li input:hover {
+    cursor: pointer;
+}
+
+.filterMain ul li {
+    display: flex;
+    align-items: center;
+}
+
+/* put down the footer */
+body {
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex-grow: 1;
+}
+
+/* recepies */
+
+#content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    width: 98%;
+    margin: auto;
+}
+
+#content .card {
+    background-color: var(--color1);
+    border-radius: 15px;
+    box-shadow: 0 2px 8px var(--color2);
+    padding: 15px;
+    width: 30%;
+    margin: 2vh 0;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.mealPic {
+    width: 100%;
+    height: 25vh;
+    object-fit: cover;
+}
+
+.heart-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 6px;
+    border-radius: 20px;
+    border: none;
+    height: 30px;
+    width: 30px;
+    background-color: var(--color4);
+}
+
+.heart-button:hover {
+    background-color: var(--color4);
+    cursor: pointer;
+}
+
+.mealPic {
+    object-position: top;
+}
+
+.recepiePresentation {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+}
+
+.infoRecepie {
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px;
+}
+
+.recepiePresentation h3 {
+    font-size: 0.9em;
+    margin: 10px;
+    font-family: var(--fontPrompt);
+    font-weight: 400;
+}
+
+.recepieCat,
+.recepieTime,
+.recepieLevel {
+    background-color: var(--color3);
+    margin: 1%;
+    border-radius: 15px;
+    padding: 3px 7px;
+    font-size: 0.7em;
+    color: var(--color1);
+    min-width: 30px;
+    font-size: 0.6em;
+}
+.recepieTime {
+    background-color: var(--color6);
+}
+.recepieLevel {
+    background-color: var(--color5);
+}
+
+.recetteButton {
+    background-color: var(--color3);
+    color: var(--color1);
+    border: none;
+    height: 3vh;
+    margin: 10px 5px;
+    font-size: 0.6em;
+}
+
+.recetteButton:hover {
+    transition: 0.6s;
+    background-color: color-mix(in srgb, var(--color3) 20%, white);
+    color: var(--color3);
+    cursor: pointer;
+}
+
+/* footer */
+
+footer {
+    background-color: var(--color1);
+}
+
+hr {
+    border: 1px solid var(--color4);
+}
+
+h4 {
+    font-size: 0.8em;
+    color: var(--color3);
+    margin: 20px 5px;
+    font-family: var(--fontPrompt);
+    font-weight: 400;
+}
+
+footer section {
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+}
+
+.navAbout {
+    width: 50%;
+}
+
+.footer-nav-item,
+.navAbout p {
+    font-size: 0.7em;
+    margin: 8px 5px;
+}
+
+.copyright p {
+    font-size: 0.7em;
+    margin: 15px;
+    text-align: center;
+    color: var(--color2);
+}
+
+.footer-nav-list li {
+    font-size: 0.8em;
+    font-weight: 300;
+    font-family: var(--fontPrompt);
+}
+form {
+    width: 98%;
+}
+
+/* -----------
+`media queries */
+
+/* tablet responsive */
+@media all and (max-width: 992px) {
+    header {
+        width: 95%;
+    }
+    #content .card {
+        min-width: 47%;
+        margin-top: 20px;
+    }
+
+    #content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 98%;
+        margin: auto;
+    }
+
+    .mealPic {
+        height: 35vh;
+    }
+
+    .recepie {
+        width: 95%;
+    }
+    .filters {
+        display: flex;
+        flex-direction: column;
+        height: 28vh;
+        padding: 0 10px;
+        overflow: scroll;
+        scrollbar-width: thin;
+        scrollbar-color: color-mix(in srgb, var(--color3) 50%, white)
+            var(--color4);
+    }
+
+    .filterMain {
+        width: 98%;
+        margin: auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding: 10px;
+    }
+
+    .pictos {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .menuList li:not(:last-child) {
+        display: none;
+    }
+    .burgerBtn {
+        display: block;
+    }
+}
+
+/* phone responsive */
+
+@media all and (max-width: 768px) {
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+      #content .card {
+        width: 98%;
+        margin-top: 20px;
+    }
+
+    #content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 98%;
+        margin: auto;
+    }
+
+    .mealPic {
+        height: 40vh;
+    }
+
+}
+
+/* -----------
+end main page 
+----------- */
+
+/* === STYLES POUR LES FAVORIS === */
+
+/* .favoris-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+    padding: 0 20px;
+} */
+
+/* Styles pour l'index.html */
+
+.recette-header-index .heart-btn {
+    margin-left: 10px;
+}
+
+.favorite-card {
+    background: var(--color4);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.favorite-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.recette-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--color3);
+    padding-bottom: 10px;
+}
+
+.recette-header h3 {
+    color: var(--color2);
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.heart-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.heart-btn:hover {
+    transform: scale(1.2);
+}
+
+.heart-btn.active {
+    animation: heartBeat 1s ease-in-out;
+}
+
+.recette-content p {
+    margin: 8px 0;
+    color: var(--color2);
+    font-size: 0.9em;
+}
+
+.date-added {
+    font-style: italic;
+    color: var(--color3);
+    font-size: 0.8em !important;
+    margin-top: 15px !important;
+}
+
+.recette-actions {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.btn-view {
+    background: var(--color3);
+    color: var(--color1);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-view:hover {
+    background: #d35400;
+}
+
+.no-favorites {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--color2);
+}
+
+.no-favorites p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+/* === END OF FAVORIS STYLES === */
+
+/* -----------
+a propos page 
+----------- */
+/* presentation et formulaire  */
+
+.presAndContact {
+    backdrop-filter: blur(30px);
+    display: flex;
+    align-items: flex-start;
+    height: auto;
+    margin: 15vh 15vw 20px 15vw;
+    border-radius: 15px;
+}
+
+.aProposBody {
+    background-image: url(assets//courges.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.aProposBody.dark {
+    background-image: url(assets//courgesdark.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.presentation {
+    width: 100%;
+    padding: min(2em, 3%);
+}
+.presentation div p {
+    padding: min(2rem, 2%);
+    line-height: 20px;
+    color: var(--color2);
+    font-weight: 100;
+    font-family: var(--fontOxygen);
+}
+.presentation span {
+    color: var(--color2);
+    text-shadow: -1px 3px 2px var(--color1);
+    font-size: 1.5em;
+    font-weight: 900;
+    padding: 0 5px;
+}
+.contact {
+    width: 100%;
+    padding: 0 20px;
+    margin-top: 3vh;
+}
+.contact form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.contact button {
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+}
+.contact form input,
+.contact form textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 0.2px solid var(--color2);
+    margin: 10px;
+    width: 100%;
+    padding: 5px;
+    font-weight: 100;
+    font-style: italic;
+    font-family: var(--fontOxygen);
+}
+
+.contact form input:focus,
+.contact form textarea:focus {
+    outline: none;
+}
+
+.contact form textarea {
+    min-height: 50px;
+    max-height: 100px;
+    word-wrap: break-word;
+    resize: none;
+}
+
+.contact form input::placeholder,
+.contact form textarea::placeholder {
+    color: var(--color2);
+}
+
+/* la fAQ */
+.questions {
+    display: flex;
+    flex-direction: column;
+}
+
+.questions div {
+    text-align: center;
+    font-family: var(--fontPrompt);
+    font-weight: 400;
+    font-size: 1.5em;
+    padding: 15px;
+    color: var(--color1);
+    text-shadow: -1px -1px 0 var(--color3), 1px -1px 0 var(--color1),
+        -1px 1px 0 var(--color3), 1px 1px 0 var(--color3);
+}
+
+.questions {
+    background-color: color-mix(in srgb, var(--colorquestions) 80%, white 20%);
+}
+.questions details {
+    font-size: 0.8rem;
+    margin: 0 1rem;
+}
+
+details summary::before {
+    content: "🍁";
+    padding-right: 10px;
+    display: inline-block;
+    line-height: 1;
+    text-align: center;
+    transition: transform 1s;
+    transform-origin: 0.5em 0.5em;
+}
+details[open] summary::before {
+    transform: rotate(360deg);
+}
+
+summary {
+    background-color: var(--color4);
+    border-radius: 5px;
+    padding: 0.7rem;
+    margin-bottom: 10px;
+}
+
+details[open] {
+    height: fit-content;
+    background-color: var(--color4);
+    border-radius: 5px;
+    transition: 1s;
+    summary {
+        background-color: var(--color3);
+        color: var(--color1);
+    }
+    margin-bottom: 10px;
+    padding: 7px;
+}
+
+details:not([open]) {
+    transition: 1s;
+}
+
+/* responsive  */
+@media all and (max-width: 990px) {
+    .presAndContact {
+        flex-direction: column;
+        height: auto;
+        margin: 10vh 5vw 20px 5vw;
+    }
+    .presentation {
+        font-size: 0.8rem;
+    }
+    .contact {
+        max-width: 60vw;
+        margin: auto;
+    }
+}
+
+/* -----------
+end a propos page 
+----------- */
