@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>    
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Recipes</title>    <link rel="shortcut icon" href="../assets/icons/logo.jpg" type="image/x-icon">
+    <script defer src="../main.js"></script>
+    <script defer src="../subject/utils.js"></script>
+    <script defer src="../subject/recettes-data.js"></script>
+    <script defer src="../subject/api-functions.js"></script>
+    <script defer src="../subject/favorites-manager.js"></script>
+    <script defer src="../subject/recipe-display.js"></script>
+    <script defer src="../subject/app-init.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    </head>
+           <body>
+            <header>
+                <nav>
+                    <section class="title">
+                        <div><a href="../index.html">G</a></div>
+                        <h1>GourmetTech</h1>
+                    </section>
+                    <ul class="menuList">
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="#">Ajouter une recette</a></li>
+                        <li><a href="favoris.html">Mes favoris</a></li>
+                        <li><a href="a_propos.html">À propos</a></li>
+                    </ul>
+                    <div class="picto">
+                        <img src="../assets/icons/menu-burger.png" alt="menuBurger" id="burgerMenu">
+                        <img src="../assets/icons/moon.png" alt="change light mode" id="moon">
+                    </div>
+                </nav>
+            </header>
+            
+            <main>
+                <div class="recette-detail">
+                    <button id="favoriButton" class="recetteButton">Ajouter aux favoris</button>
+                
+                <div id="recetteContainer" class="hidden">    
+                    <div class="recette-header">
+                        <h1 id="titreRecette"></h1>    
+                        <img id="imageRecette" src="" alt="Image de la recette" class="recette-image">
+                    </div>
+                    
+                    <div class="recette-info-grid">
+                        <div class="filterMain">
+                            <strong>🍽️ Catégorie</strong><br>
+                            <span id="categorieRecette"></span>
+                        </div>
+                        <div class="filterMain">
+                            <strong>⏱️ Temps</strong><br>
+                            <span id="tempsRecette"></span>
+                        </div>
+                        <div class="filterMain">
+                            <strong>⭐ Difficulté</strong><br>
+                            <span id="difficulteRecette"></span>
+                        </div>
+                        <div class="filterMain">
+                            <strong>👥 Personnes</strong><br>
+                            <span id="nbPersonnesRecette"></span>
+                        </div>
+                    </div>        
+                    
+                    <div class="ingredients-etapes-grid">
+                        <div class="filterMain">
+                            <h2>🛒 Ingrédients</h2>    
+                            <ul id="ingredientsList"></ul>
+                        </div>
+                        
+                        <div class="filterMain">
+                            <h2>👩‍🍳 Étapes de préparation</h2>    
+                            <ol id="etapesList"></ol>
+                        </div>
+                    </div>
+                    
+                    <div class="filterMain">
+                        <h2>💡 Suggestions de recettes similaires</h2>    
+                        <div id="suggestionsList"></div>
+                    </div>
+                    
+                    <a href="../index.html" class="recetteButton">← Retour aux recettes</a>
+                </div>
+            </div>
+            </main>
+            
+            <footer>
+                <hr />
+                <section>
+                    <div class="navAbout">
+                        <h4>Navigation</h4>
+                        <ul class="footer-nav-list">
+                            <li class="footer-nav-item"><a href="../index.html" class="footer-nav-link">Accueil</a></li>
+                            <li class="footer-nav-item"><a href="recettes.html" class="footer-nav-link">Ajouter une recette</a></li>
+                            <li class="footer-nav-item"><a href="favoris.html" class="footer-nav-link">Mes favoris</a></li>
+                            <li class="footer-nav-item"><a href="a_propos.html" class="footer-nav-link">À propos</a></li>
+                        </ul>
+                    </div>
+                    <div class="navAbout">
+                        <h4>À propos de GourmetTech</h4>
+                        <p>GourmetTech est une plateforme de recettes culinaires interactives, dans le cadre d'un projet pédagogique.</p>
+                    </div>
+                </section>
+                <hr />
+                <div class="copyright">
+                    <p>&copy; 2025 GourmetTech - Tous droits réservés</p>
+                </div>
+            </footer>
+        </body>
+    </html>
