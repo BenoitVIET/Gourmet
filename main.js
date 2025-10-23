@@ -318,12 +318,68 @@ for (let recepie of recepies) {
     recept = eachCard.content.cloneNode(true);
 
     recept.querySelector("h3").textContent = recepie.title;
-
     recept.querySelector(".recepieLevel").textContent = recepie.difficulty;
     recept.querySelector(".recepieTime").textContent = recepie.timePrep;
     recept.querySelector(".recepieCat").textContent = recepie.category;
     recept.querySelector(".mealPic").src = recepie.img;
     recept.querySelector(".mealPic").alt = recepie.alt;
+
+    // Ajouter l'événement au bouton cœur
+    const heartButton = recept.querySelector(".heart-button");
+    if (heartButton) {
+        // Créer un ID unique pour chaque recette basé sur le titre
+        const recipeId = recepie.title.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, '');
+        
+        // Supprimer l'ancien onclick
+        heartButton.removeAttribute('onclick');
+        
+        // Ajouter le nouvel événement
+        heartButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Créer les données de recette compatibles
+            const recetteData = {
+                titre: recepie.title,
+                image: recepie.img,
+                categorie: recepie.category,
+                temps: "30 minutes", // Valeur par défaut
+                difficulte: recepie.difficulty,
+                nbPersonnes: recepie.nbPersonnes || 4,
+                ingredients: recepie.ingredients || [],
+                etapes: recepie.etapes || []
+            };
+            
+            // Appeler la fonction de gestion des favoris
+            if (typeof window.handleToggleFavorite !== 'undefined') {
+                window.handleToggleFavorite(recipeId, recetteData, this);
+            } else {
+                // Fallback simple si la fonction n'est pas disponible
+                if (this.src.includes('grayHeart')) {
+                    this.src = 'assets/icons/redHeart.jpg';
+                    this.alt = 'Retirer des favoris';
+                } else {
+                    this.src = 'assets/icons/grayHeart.jpg';
+                    this.alt = 'Ajouter aux favoris';
+                }
+            }
+        });
+    }
+
+    // Ajouter l'événement au bouton "Voir la recette"
+    const viewButton = recept.querySelector(".recetteButton");
+    if (viewButton) {
+        // Créer un ID unique pour chaque recette
+        const recipeId = recepie.title.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, '');
+        
+        // Supprimer l'ancien onclick
+        viewButton.removeAttribute('onclick');
+        
+        // Ajouter le nouvel événement
+        viewButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = `html/recettes.html?recette=${recipeId}`;
+        });
+    }
 
     content.appendChild(recept);
 }
