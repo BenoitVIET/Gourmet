@@ -364,3 +364,7 @@ buttonSearch.addEventListener("click", function (e) {
     console.log(recepieSearch.value);
     findRecepie();
 });
+
+
+
+//button pour les favoris

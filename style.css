@@ -175,7 +175,7 @@ header {
         -1px 1px 0 var(--color2), 1px 1px 0 var(--color1);
 }
 
-.menuList {
+.menuList:not(.burgerBtn){
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -382,17 +382,21 @@ main {
     object-fit: cover;
 }
 
-.heart-button {
-    position: absolute;
+.heart-buttonDiv{
+    position:absolute;
     top: 30px;
-    right: 30px;
-    padding: 6px;
+    right:30px;
+}
+
+
+.heart-buttonDiv img {
     border-radius: 20px;
-    border: none;
     height: 30px;
     width: 30px;
     background-color: var(--color4);
+   
 }
+
 
 .heart-button:hover {
     background-color: var(--color4);
@@ -718,13 +722,13 @@ a propos page
 }
 
 .aProposBody {
-    background-image: url(assets//courges.jpg);
+    background-image: url(./assets/pictures/courges.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 .aProposBody.dark {
-    background-image: url(assets//courgesdark.png);
+    background-image: url(./assets/pictures/courgesdark.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -874,3 +878,156 @@ details:not([open]) {
 /* -----------
 end a propos page 
 ----------- */
+
+
+
+/* -----------
+SUGGESTIONS API - CSS pour les recettes similaires
+----------- */
+
+.suggestions-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.suggestion-card {
+    background: var(--color4);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.suggestion-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-color: var(--color3);
+}
+
+.suggestion-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.suggestion-info {
+    padding: 15px;
+}
+
+.suggestion-info h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color2);
+    line-height: 1.3;
+}
+
+.suggestion-category {
+    font-size: 0.9rem;
+    color: var(--color3);
+    font-weight: 500;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.suggestion-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-view-suggestion {
+    background: linear-gradient(135deg, var(--color3), #d35400);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.btn-view-suggestion:hover {
+    background: linear-gradient(135deg, #d35400, var(--color3));
+    transform: scale(1.05);
+}
+
+.heart-icon-suggestion {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border-radius: 50%;
+    padding: 4px;
+}
+
+.heart-icon-suggestion:hover {
+    transform: scale(1.1);
+    background: rgba(231, 127, 33, 0.1);
+}
+
+/* Mode sombre pour les suggestions */
+.dark .suggestion-card {
+    background: var(--color2);
+    color: var(--color1);
+    border-color: #333;
+}
+
+.dark .suggestion-info h4 {
+    color: var(--color1);
+}
+
+.dark .suggestion-card:hover {
+    border-color: var(--color3);
+    box-shadow: 0 8px 20px rgba(231, 127, 33, 0.2);
+}
+
+/* Responsive design pour les suggestions */
+@media (max-width: 768px) {
+    .suggestions-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    
+    .suggestion-image {
+        height: 150px;
+    }
+    
+    .suggestion-info {
+        padding: 12px;
+    }
+    
+    .suggestion-info h4 {
+        font-size: 1rem;
+    }
+    
+    .btn-view-suggestion {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .suggestions-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .suggestion-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .btn-view-suggestion {
+        width: 100%;
+        text-align: center;
+    }
+}
