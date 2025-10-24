@@ -20,23 +20,51 @@
     </head>
            <body>
             <header>
-                <nav>
-                    <section class="title">
-                        <div><a href="../index.html">G</a></div>
-                        <h1>GourmetTech</h1>
-                    </section>
-                    <ul class="menuList">
-                        <li><a href="../index.html">Accueil</a></li>
-                        <li><a href="#">Ajouter une recette</a></li>
-                        <li><a href="favoris.html">Mes favoris</a></li>
-                        <li><a href="a_propos.html">À propos</a></li>
-                    </ul>
-                    <div class="picto">
-                        <img src="../assets/icons/menu-burger.png" alt="menuBurger" id="burgerMenu">
-                        <img src="../assets/icons/moon.png" alt="change light mode" id="moon">
-                    </div>
-                </nav>
-            </header>
+            <nav>
+                <ul class="toggle">
+                    <li class="closeBtnMenu"> <img src="../assets/icons/close.png" alt="close menu button"></li>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li>
+                        <a href="#">Ajouter une recette</a>
+                    </li>
+                    <li><a href="favoris.html">Mes favoris</a></li>
+                    <li><a href="aPropos.html">À propos</a></li>
+                </ul>
+
+                <section class="title">
+                    <div><a href="../index.html">G</a></div>
+                    <h1>GourmetTech</h1>
+                </section>
+                <ul class="menuList">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li>
+                        <a href="#">Ajouter une recette</a>
+                    </li>
+                    <li><a href="favoris.html">Mes favoris</a></li>
+                    <li><a href="aPropos.html">À propos</a></li>
+                     <li>
+                        <img
+                            class="burgerBtn"
+                            src="../assets/icons/menu-burger.png"
+                            alt="menu burger"
+                        />
+                    </li>
+                </ul>
+
+                <div class="picto">
+                    <img
+                        src="../assets/icons/moon.png"
+                        alt="change light mode"
+                        id="moon"
+                    />
+                    <img
+                        src="../assets/icons/sunny.png"
+                        alt="change light mode"
+                        id="sun"
+                    />
+                </div>
+            </nav>
+        </header>
             
             <main>
                 <div class="recette-detail">
