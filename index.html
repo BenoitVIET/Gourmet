@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Accueil</title>
-        <link rel="shortcut icon" href="assets/icons/logo.jpg" type="image/x-icon" />
+        <link rel="shortcut icon" href="assets/icons/logo.jpg" type="image/x-icon"/>
         <script defer src="main.js"></script>
         <script defer src="js/utils.js"></script>
         <script defer src="js/recettes-data.js"></script>
@@ -12,16 +12,17 @@
         <script defer src="js/favorites-manager.js"></script>
         <script defer src="js/recipe-display.js"></script>
         <script defer src="js/app-init.js"></script>
-        <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="css/benoit.css" />
-        <link rel="stylesheet" href="css/laura.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="css/benoit.css"/>
+        <link rel="stylesheet" href="css/laura.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
         <link
             href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-            rel="stylesheet"
-        />
+            rel="stylesheet"/>
     </head>
+
+    
     <body>
         <header>
             <nav>
@@ -43,42 +44,25 @@
                 </section>
                 <ul class="menuList">
                     <li><a href="index.html">Accueil</a></li>
-                    <li>
-                        <a href="#">Ajouter une recette</a>
-                    </li>
+                    <li><a href="#">Ajouter une recette</a></li>
                     <li><a href="html/favoris.html">Mes favoris</a></li>
                     <li><a href="html/a_propos.html">À propos</a></li>
                     <li>
-                        <img
-                            class="burgerBtn"
-                            src="assets/icons/menu-burger.png"
-                            alt="menu burger"
-                        />
+                        <img class="burgerBtn" src="assets/icons/menu-burger.png" alt="menu burger" />
                     </li>
                 </ul>
 
                 <div class="picto">
-                    <img
-                        src="assets/icons/moon.png"
-                        alt="change light mode"
-                        id="moon"
-                    />
-                    <img
-                        src="assets/icons/sunny.png"
-                        alt="change light mode"
-                        id="sun"
-                    />
+                    <img src="assets/icons/moon.png" alt="change light mode" id="moon" />
+                    <img src="assets/icons/sunny.png" alt="change light mode" id="sun" />
                 </div>
             </nav>
         </header>
+
         <main>
             <section class="recepie">
                 <form>
-                    <input
-                        type="text"
-                        placeholder="Rechercher une recette..."
-                        id="recepieSearch"
-                    />
+                    <input type="text" placeholder="Rechercher une recette..." id="recepieSearch" />
                     <button>Rechercher</button>
                 </form>
                 <div class="filters">
@@ -86,31 +70,16 @@
                         <h2>Catégorie</h2>
                         <ul class="entryFilter">
                             <li>
-                                <input
-                                    type="checkbox"
-                                    id="entry"
-                                    name="category"
-                                    data-category="entrée"
-                                />
-                                <label for="entry"> Entrée </label>
+                                <input type="checkbox" id="entry" name="category" data-category="entrée" />
+                                <label for="entry">Entrée</label>
                             </li>
                             <li>
-                                <input
-                                    type="checkbox"
-                                    id="main"
-                                    name="category"
-                                    data-category="plat"
-                                />
-                                <label for="main"> Plat </label>
+                                <input type="checkbox" id="main" name="category" data-category="plat" />
+                                <label for="main">Plat</label>
                             </li>
                             <li>
-                                <input
-                                    type="checkbox"
-                                    id="desert"
-                                    name="category"
-                                    data-category="dessert"
-                                />
-                                <label for="desert"> Dessert </label>
+                                <input type="checkbox" id="desert" name="category" data-category="dessert" />
+                                <label for="desert">Dessert</label>
                             </li>
                         </ul>
                     </div>
@@ -118,31 +87,16 @@
                         <h2>Temps de préparation</h2>
                         <ul class="prepTimeFilter">
                             <li>
-                                <input
-                                    type="checkbox"
-                                    id="fast"
-                                    name="preparationTime"
-                                    data-preparationtime="rapide"
-                                />
-                                <label for="fast"> Rapide  </label>
+                                <input type="checkbox" id="fast" name="preparationTime" data-preparationtime="rapide" />
+                                <label for="fast">Rapide</label>
                             </li>
                             <li>
-                                <input
-                                    type="checkbox"
-                                    id="medium"
-                                    name="preparationTime"
-                                    data-preparationtime="moyen"
-                                />
-                                <label for="medium"> Moyen  </label>
+                                <input type="checkbox" id="medium" name="preparationTime" data-preparationtime="moyen" />
+                                <label for="medium">Moyen</label>
                             </li>
                             <li>
-                                <input
-                                    type="checkbox"
-                                    id="Long"
-                                    name="preparationTime"
-                                    data-preparationtime="long"
-                                />
-                                <label for="Long"> Long  </label>
+                                <input type="checkbox" id="Long" name="preparationTime" data-preparationtime="long" />
+                                <label for="Long">Long</label>
                             </li>
                         </ul>
                     </div>
@@ -150,31 +104,16 @@
                         <h2>Difficulté</h2>
                         <ul class="difficultyFilter">
                             <li>
-                                <input
-                                    type="checkbox"
-                                    id="easy"
-                                    name="Difficulty"
-                                    data-difficulty="facile"
-                                />
-                                <label for="easy"> Facile </label>
+                                <input type="checkbox" id="easy" name="Difficulty" data-difficulty="facile" />
+                                <label for="easy">Facile</label>
                             </li>
                             <li>
-                                <input
-                                    type="checkbox"
-                                    id="moderate"
-                                    name="Difficulty"
-                                    data-difficulty="moyen"
-                                />
-                                <label for="moderate"> Moyen </label>
+                                <input type="checkbox" id="moderate" name="Difficulty" data-difficulty="moyen"/>
+                                <label for="moderate">Moyen</label>
                             </li>
                             <li>
-                                <input
-                                    type="checkbox"
-                                    id="hard"
-                                    name="Difficulty"
-                                    data-difficulty="difficile"
-                                />
-                                <label for="hard"> Difficile </label>
+                                <input type="checkbox" id="hard" name="Difficulty" data-difficulty="difficile"/>
+                                <label for="hard">Difficile</label>
                             </li>
                         </ul>
                     </div>
@@ -182,7 +121,6 @@
             </section>
             <section class="recepies">
                 <div id="content"></div>
-
                 <template class="eachCard">
                     <div class="card">
                         <img class="mealPic" src="" alt=""/>
@@ -201,14 +139,13 @@
                                 <p class="recepieTime"></p>
                                 <p class="recepieLevel"></p>
                             </div>
-                            <button class="recetteButton">
-                                Voir la recette
-                            </button>
+                            <button class="recetteButton">Voir la recette</button>
                         </div>
                     </div>
                 </template>
             </section>
         </main>
+
         <footer>
             <hr />
             <section>
@@ -216,28 +153,16 @@
                     <h4>Navigation</h4>
                     <ul class="footer-nav-list">
                         <li class="footer-nav-item">
-                            <a href="index.html" class="footer-nav-link"
-                                >Accueil</a
-                            >
+                            <a href="index.html" class="footer-nav-link">Accueil</a>
                         </li>
                         <li class="footer-nav-item">
-                            <a href="#" class="footer-nav-link"
-                                >Ajouter une recette</a
-                            >
+                            <a href="#" class="footer-nav-link">Ajouter une recette</a>
                         </li>
                         <li class="footer-nav-item">
-                            <a
-                                href="html/favoris.html"
-                                class="footer-nav-link"
-                                >Mes favoris</a
-                            >
+                            <a href="html/favoris.html" class="footer-nav-link">Mes favoris</a>
                         </li>
                         <li class="footer-nav-item">
-                            <a
-                                href="html/a_propos.html"
-                                class="footer-nav-link"
-                                >À propos</a
-                            >
+                            <a href="html/a_propos.html" class="footer-nav-link">À propos</a>
                         </li>
                     </ul>
                 </div>
