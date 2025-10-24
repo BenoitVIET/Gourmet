@@ -22,6 +22,8 @@ body {
 body {
     position: relative;
     background-color: var(--color1);
+    display: flex;
+    flex-direction: column;
 }
 
 :root {
@@ -39,11 +41,11 @@ body {
     --colorDark2: #1c1c1e;
     --colorDark4: #545151;
 }
-/* ******************************
+/* **********
 ========================
  dark mode  
  ========================
-****************************** */
+********** */
 body.dark {
     --color1: #1c1c1e;
     --color2: #c7c1c1;
@@ -253,7 +255,6 @@ a {
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-bottom: 10px;
     box-shadow: 0px 0px 7px 1px #938989;
     border-radius: 5px;
 }
@@ -345,11 +346,6 @@ form button:hover {
     align-items: center;
 }
 
-/* put down the footer */
-body {
-    display: flex;
-    flex-direction: column;
-}
 main {
     flex-grow: 1;
 }
@@ -380,6 +376,7 @@ main {
     width: 100%;
     height: 25vh;
     object-fit: cover;
+    object-position: top;
 }
 
 .heart-buttonDiv{
@@ -401,10 +398,6 @@ main {
 .heart-button:hover {
     background-color: var(--color4);
     cursor: pointer;
-}
-
-.mealPic {
-    object-position: top;
 }
 
 .recepiePresentation {
@@ -872,6 +865,12 @@ details:not([open]) {
     .contact {
         max-width: 60vw;
         margin: auto;
+    }
+        .eachCard {
+        width: 45%;
+        margin: auto;
+        margin-top: 20px;
+        display: flex;
     }
 }
 
