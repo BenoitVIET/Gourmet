@@ -1,30 +1,4 @@
 
-.menuList {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 50%;
-}
-
-#burgerMenu {
-    width: 35px;
-    height: 35px;
-    border-radius: 50px;
-    padding: 8px;
-    display: none;
-}
-
-#burgerMenu:hover {
-    transform: rotate(360deg);
-    transition: 0.7s;
-    cursor: pointer;
-}
-#burgerMenu:active {
-    background-color: #2fce72;
-    transition: 0.7s;
-    cursor: pointer;
-}
-
 .recepies {
     display: flex;
     justify-content: space-between;
@@ -38,14 +12,14 @@
     margin: auto;
     margin-top: 20px;
     height: auto;
-    width: 32%;
+    width: 50%;
+    padding: 10px;
     box-shadow: 0px 0px 7px 1px #938989;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-
 }
 
 .heart-button {
@@ -59,26 +33,6 @@
     width: 30px;
     background-color: var(--color4);
 }
-
-.recetteButton, #favoriButton {
-    background: linear-gradient(135deg, var(--color3), #d35400);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin: 10px 5px;
-    min-height: 40px;
-}
-
-.recetteButton:hover, #favoriButton:hover {
-    background: linear-gradient(135deg, #d35400, var(--color3));
-    transform: scale(1.05);
-}
-
 /* Classes spécifiques pour les pages de recettes */
 .hidden { 
     display: none; 
