@@ -133,7 +133,7 @@ let recepies = [
      {
     title: "Salade de quinoa et légumes",
     alt: "Salade de quinoa et légumes",
-    img: "assets/pictures/salade-quinoa.jpg",
+    img: "assets/pictures/quinoa.jpg",
     category: "entrée",
     timePrep: "rapide",
     difficulty: "facile",
@@ -156,7 +156,7 @@ let recepies = [
   {
     title: "Velouté de carottes",
     alt: "Velouté de carottes",
-    img: "assets/pictures/veloute-carottes.jpg",
+    img: "assets/pictures/carotte.jpg",
     category: "entrée",
     timePrep: "moyen",
     difficulty: "facile",
@@ -178,7 +178,7 @@ let recepies = [
   {
     title: "Tartines avocat-tomate",
     alt: "Tartines avocat-tomate",
-    img: "assets/pictures/tartine-avocat.jpg",
+    img: "assets/pictures/avocat.jpg",
     category: "entrée",
     timePrep: "rapide",
     difficulty: "facile",
@@ -198,7 +198,7 @@ let recepies = [
   {
     title: "Curry de légumes",
     alt: "Curry de légumes",
-    img: "assets/pictures/curry-legumes.jpg",
+    img: "assets/pictures/curry.jpg",
     category: "plat",
     timePrep: "moyen",
     difficulty: "moyen",
@@ -222,7 +222,7 @@ let recepies = [
   {
     title: "Pâtes aux champignons",
     alt: "Pâtes aux champignons",
-    img: "assets/pictures/pates-champignons.jpg",
+    img: "assets/pictures/PatesChampignons.jpg",
     category: "plat",
     timePrep: "rapide",
     difficulty: "facile",
@@ -244,7 +244,7 @@ let recepies = [
   {
     title: "Salade de lentilles",
     alt: "Salade de lentilles",
-    img: "assets/pictures/salade-lentilles.jpg",
+    img: "assets/pictures/lentilles.jpg",
     category: "entrée",
     timePrep: "rapide",
     difficulty: "facile",
@@ -265,7 +265,7 @@ let recepies = [
   {
     title: "Gratin de courgettes",
     alt: "Gratin de courgettes",
-    img: "assets/pictures/gratin-courgettes.jpg",
+    img: "assets/pictures/courgettes.jpg",
     category: "plat",
     timePrep: "long",
     difficulty: "moyen",
@@ -286,7 +286,7 @@ let recepies = [
   },{
     title: "Muffins banane-chocolat",
     alt: "Muffins banane-chocolat",
-    img: "assets/pictures/muffins-banane.jpg",
+    img: "assets/pictures/muffin.jpg",
     category: "dessert",
     timePrep: "moyen",
     difficulty: "facile",
@@ -309,7 +309,7 @@ let recepies = [
   {
     title: "Brownie aux haricots noirs",
     alt: "Brownie aux haricots noirs",
-    img: "assets/pictures/brownie-haricots.jpg",
+    img: "assets/pictures/brownie.jpg",
     category: "dessert",
     timePrep: "moyen",
     difficulty: "moyen",
@@ -330,7 +330,7 @@ let recepies = [
   {
     title: "Smoothie bowl fruits rouges",
     alt: "Smoothie bowl fruits rouges",
-    img: "assets/pictures/smoothie-bowl.jpg",
+    img: "assets/pictures/smoothie.jpg",
     category: "dessert",
     timePrep: "rapide",
     difficulty: "facile",
@@ -351,7 +351,7 @@ let recepies = [
   {
     title: "Burger veggie maison",
     alt: "Burger veggie maison",
-    img: "assets/pictures/burger-veggie.jpg",
+    img: "assets/pictures/burger.jpg",
     category: "plat",
     timePrep: "moyen",
     difficulty: "moyen",
@@ -373,7 +373,7 @@ let recepies = [
   {
     title: "Pizza pita rapide",
     alt: "Pizza pita rapide",
-    img: "assets/pictures/pizza-pita.jpg",
+    img: "assets/pictures/pizza.jpg",
     category: "plat",
     timePrep: "rapide",
     difficulty: "facile",
@@ -394,7 +394,7 @@ let recepies = [
   {
     title: "Frites de patate douce au four",
     alt: "Frites de patate douce au four",
-    img: "assets/pictures/frites-patate-douce.jpg",
+    img: "assets/pictures/frites.jpg",
     category: "plat",
     timePrep: "moyen",
     difficulty: "facile",
@@ -413,7 +413,7 @@ let recepies = [
   {
     title: "Wraps végétariens",
     alt: "Wraps végétariens",
-    img: "assets/pictures/wraps.jpg",
+    img: "assets/pictures/wrap.jpg",
     category: "plat",
     timePrep: "rapide",
     difficulty: "facile",
@@ -433,7 +433,7 @@ let recepies = [
   {
     title: "Cookies avoine & chocolat",
     alt: "Cookies avoine & chocolat",
-    img: "assets/pictures/cookies-avoine.jpg",
+    img: "assets/pictures/cookies.jpg",
     category: "dessert",
     timePrep: "rapide",
     difficulty: "facile",
@@ -454,7 +454,7 @@ let recepies = [
   {
     title: "Energy balls cacao-noix",
     alt: "Energy balls cacao-noix",
-    img: "assets/pictures/energy-balls.jpg",
+    img: "assets/pictures/energyBall.jpg",
     category: "dessert",
     timePrep: "rapide",
     difficulty: "facile",
@@ -718,10 +718,10 @@ for (let recepie of recepies) {
             } else {
                 // Fallback simple si la fonction n'est pas disponible
                 if (this.src.includes("grayHeart")) {
-                    this.src = "assets/icons/redHeart.jpg";
+                    this.src = "assets/icons/redHeart.png";
                     this.alt = "Retirer des favoris";
                 } else {
-                    this.src = "assets/icons/grayHeart.jpg";
+                    this.src = "assets/icons/grayHeart.png";
                     this.alt = "Ajouter aux favoris";
                 }
             }

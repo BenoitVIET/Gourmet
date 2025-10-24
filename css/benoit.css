@@ -7,21 +7,6 @@
     flex-wrap: wrap;
 }
 
-.eachCard {
-    margin-bottom: 10px;
-    margin: auto;
-    margin-top: 20px;
-    height: auto;
-    width: 50%;
-    padding: 10px;
-    box-shadow: 0px 0px 7px 1px #938989;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-}
-
 .heart-button {
     position: absolute;
     top: 15px;
@@ -132,7 +117,6 @@
 /* phone responsive */
     #recepieSearch,
     form button {
-        width: 100%;
         margin: 5px 0;
     }
     form button {

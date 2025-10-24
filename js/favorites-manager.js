@@ -350,7 +350,7 @@ function createFavoriteCard(recette) {
             <div class="recette-header">
                 <h3>${recette.nom}</h3>
                 <button onclick="removeFavoriteRecipe('${recette.id}')" style="background: none; border: none; cursor: pointer; padding: 5px;">
-                    <img src="../assets/icons/redHeart.jpg" alt="Retirer des favoris" style="width: 20px; height: 20px;">
+                    <img src="../assets/icons/redHeart.png" alt="Retirer des favoris" style="width: 20px; height: 20px;">
                 </button>
             </div>
             <div class="recette-content">

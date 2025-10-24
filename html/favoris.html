@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Favoris</title>
-         <link rel="shortcut icon" href="../assets/icons/logo.jpg" type="image/x-icon">
+        <link
+            rel="shortcut icon"
+            href="../assets/icons/logo.jpg"
+            type="image/x-icon"
+        />
         <script defer src="../main.js"></script>
         <script defer src="../js/utils.js"></script>
         <script defer src="../js/recettes-data.js"></script>
@@ -12,19 +16,26 @@
         <script defer src="../js/favorites-manager.js"></script>
         <script defer src="../js/recipe-display.js"></script>
         <script defer src="../js/app-init.js"></script>
-        <link rel="stylesheet" href="../style.css"/>
-        <link rel="stylesheet" href="../css/benoit.css"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="../style.css" />
+        <link rel="stylesheet" href="../css/benoit.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+            rel="stylesheet"
+        />
     </head>
 
-
     <body>
-           <header>
+        <header>
             <nav>
                 <ul class="toggle">
-                    <li class="closeBtnMenu"> <img src="../assets/icons/close.png" alt="close menu button"></li>
+                    <li class="closeBtnMenu">
+                        <img
+                            src="../assets/icons/close.png"
+                            alt="close menu button"
+                        />
+                    </li>
                     <li><a href="../index.html">Accueil</a></li>
                     <li><a href="#">Ajouter une recette</a></li>
                     <li><a href="favoris.html">Mes favoris</a></li>
@@ -41,28 +52,48 @@
                     </li>
                     <li><a href="favoris.html">Mes favoris</a></li>
                     <li><a href="a_propos.html">À propos</a></li>
-                     <li>
-                        <img class="burgerBtn" src="../assets/icons/menu-burger.png" alt="menu burger"/>
+                    <li>
+                        <img
+                            class="burgerBtn"
+                            src="../assets/icons/menu-burger.png"
+                            alt="menu burger"
+                        />
                     </li>
                 </ul>
 
                 <div class="picto">
-                    <img src="../assets/icons/moon.png" alt="change light mode" id="moon"/>
-                    <img src="../assets/icons/sunny.png" alt="change light mode" id="sun"/>
+                    <img
+                        src="../assets/icons/moon.png"
+                        alt="change light mode"
+                        id="moon"
+                    />
+                    <img
+                        src="../assets/icons/sunny.png"
+                        alt="change light mode"
+                        id="sun"
+                    />
                 </div>
             </nav>
         </header>
 
         <main class="recette-detail">
-            <h2>Mes favoris</h2>
-            <p>Voici vos recettes favorites. Vous pouvez les consulter et les gérer ici.</p>
-            
-            <!-- Message si aucun favori -->
-            <div id="no-favorites" class="filterMain" style="display: none;">
-                <p>Aucune recette favorite pour le moment.</p>
-                <p>Cliquez sur le cœur d'une recette pour l'ajouter à vos favoris !</p>
+            <div class = "myFavorite">
+                <h2>Mes favoris</h2>
+                <p>
+                    Voici vos recettes favorites. Vous pouvez les consulter et
+                    les gérer ici.
+                </p>
             </div>
-            
+
+            <!-- Message si aucun favori -->
+            <div id="no-favorites" class="filterMain" style="display: none">
+                <p>Aucune recette favorite pour le moment.</p>
+                <p>
+                    Cliquez sur le cœur d'une recette pour l'ajouter à vos
+                    favoris !
+                </p>
+            </div>
+
             <!-- Contenu des recettes favorites -->
             <div id="favoris-list" class="recepies">
                 <!-- Les recettes favorites seront ajoutées ici dynamiquement -->
@@ -70,23 +101,42 @@
         </main>
 
         <footer>
-            <hr/>
+            <hr />
             <section>
                 <div class="navAbout">
                     <h4>Navigation</h4>
                     <ul class="footer-nav-list">
-                        <li class="footer-nav-item"><a href="../index.html" class="footer-nav-link">Accueil</a></li>
-                        <li class="footer-nav-item"><a href="recettes.html" class="footer-nav-link">Ajouter une recette</a></li>
-                        <li class="footer-nav-item"><a href="favoris.html" class="footer-nav-link">Mes favoris</a></li>
-                        <li class="footer-nav-item"><a href="a_propos.html" class="footer-nav-link">À propos</a></li>
+                        <li class="footer-nav-item">
+                            <a href="../index.html" class="footer-nav-link"
+                                >Accueil</a
+                            >
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="recettes.html" class="footer-nav-link"
+                                >Ajouter une recette</a
+                            >
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="favoris.html" class="footer-nav-link"
+                                >Mes favoris</a
+                            >
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="a_propos.html" class="footer-nav-link"
+                                >À propos</a
+                            >
+                        </li>
                     </ul>
                 </div>
                 <div class="navAbout">
                     <h4>À propos de GourmetTech</h4>
-                    <p>GourmetTech est une plateforme de recettes culinaires interactives, dans le cadre d'un projet pédagogique.</p>
+                    <p>
+                        GourmetTech est une plateforme de recettes culinaires
+                        interactives, dans le cadre d'un projet pédagogique.
+                    </p>
                 </div>
             </section>
-            <hr/>
+            <hr />
             <div class="copyright">
                 <p>&copy; 2025 GourmetTech - Tous droits réservés</p>
             </div>

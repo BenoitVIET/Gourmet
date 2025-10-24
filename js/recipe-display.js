@@ -363,8 +363,8 @@ class RecipeDisplayManager {
                 // Utiliser le nom original sans traduction
                 const recipeName = recipe.strMeal;
                 const isFavorite = favoritesManager.isApiFavorite(recipe.idMeal);
-                const heartIcon = isFavorite ? '../assets/icons/redHeart.jpg' : '../assets/icons/grayHeart.jpg';
-                
+                const heartIcon = isFavorite ? '../assets/icons/redHeart.png' : '../assets/icons/grayHeart.png';
+                            
                 return `
                     <div class="suggestion-card">
                         <img src="${recipe.strMealThumb}" alt="${recipeName}" class="suggestion-image">
@@ -372,7 +372,7 @@ class RecipeDisplayManager {
                             <h4>${recipeName}</h4>
                             <p class="suggestion-category">${recipe.strCategory}</p>
                             <div class="suggestion-actions">
-                                <button onclick="viewApiRecipe('${recipe.idMeal}')" class="btn-view-suggestion">
+                                <button onclick="viewApiRecipe('${recipe.idMeal}')" class="recetteButton">
                                     Voir la recette
                                 </button>
                                 <img src="${heartIcon}" 
