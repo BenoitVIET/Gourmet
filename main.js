@@ -681,7 +681,7 @@ for (let recepie of window.recepies) {
   recept.querySelector(".mealPic").src = recepie.img;
   recept.querySelector(".mealPic").alt = recepie.alt;
 
-  // Bouton favoris
+ // Bouton favoris
   const heartButton = recept.querySelector(".heart-button");
   if (heartButton) {
     const recipeId = recepie.title.toLowerCase().replace(/\s+/g, "").replace(/[^a-z0-9]/g, "");
@@ -699,10 +699,16 @@ for (let recepie of window.recepies) {
         favorites.push({ id: recipeId });
         heartButton.src = "assets/icons/redHeart.png";
         heartButton.alt = "Retirer des favoris";
+        if (typeof showNotification === 'function') {
+          showNotification(`✅ "${recepie.title}" ajouté aux favoris !`, 'add');
+        }
       } else {
         favorites.splice(index, 1);
         heartButton.src = "assets/icons/grayHeart.png";
         heartButton.alt = "Ajouter aux favoris";
+        if (typeof showNotification === 'function') {
+          showNotification(`❌ "${recepie.title}" retiré des favoris !`, 'remove');
+        }
       }
       localStorage.setItem('gourmet-favorites', JSON.stringify(favorites));
     });
