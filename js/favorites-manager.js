@@ -1,3 +1,91 @@
+// Fonction utilitaire pour afficher les favoris (remplace le script inline)
+window.afficherFavoris = async function () {
+    let favorites = [];
+    try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
+    const favorisList = document.getElementById('favoris-list');
+    favorisList.innerHTML = '';
+    if (!favorites.length) {
+        document.getElementById('no-favorites').style.display = 'block';
+        return;
+    } else {
+        document.getElementById('no-favorites').style.display = 'none';
+    }
+
+    let locales = window.recepies || [];
+    const template = document.querySelector('.eachCardFavoris');
+    favorisList.innerHTML = '';
+    let row = null;
+    let count = 0;
+    for (let fav of favorites) {
+        let recette = locales.find(r => r.title.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, '') === fav.id);
+        if (count % 3 === 0) {
+            row = document.createElement('div');
+            row.style.display = 'flex';
+            row.style.gap = '24px';
+            row.style.marginBottom = '24px';
+            favorisList.appendChild(row);
+        }
+        count++;
+        if (recette) {
+            const card = template.content.cloneNode(true);
+            card.querySelector('.mealPic').src = '../' + recette.img;
+            card.querySelector('.mealPic').alt = recette.alt || recette.title;
+            card.querySelector('h3').textContent = recette.title;
+            card.querySelector('.recepieCat').textContent = recette.category;
+            card.querySelector('.recepieTime').textContent = recette.timePrep;
+            card.querySelector('.recepieLevel').textContent = recette.difficulty;
+            card.querySelector('.recetteButton').addEventListener('click', function () {
+                window.location.href = `recettes.html?recette=${fav.id}`;
+            });
+            card.querySelector('.heart-button').addEventListener('click', function (e) {
+                e.stopPropagation();
+                let favorites = [];
+                try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
+                const index = favorites.findIndex(f => f.id === fav.id);
+                if (index !== -1) {
+                    favorites.splice(index, 1);
+                    localStorage.setItem('gourmet-favorites', JSON.stringify(favorites));
+                    card.querySelector('.heart-button').closest('.card').remove();
+                    if (!favorites.length) document.getElementById('no-favorites').style.display = 'block';
+                }
+            });
+            row.appendChild(card);
+        } else if (/^\d+$/.test(fav.id)) {
+            // Recette API
+            const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${fav.id}`;
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                if (data.meals && data.meals[0]) {
+                    const apiRecipe = data.meals[0];
+                    const card = template.content.cloneNode(true);
+                    card.querySelector('.mealPic').src = apiRecipe.strMealThumb;
+                    card.querySelector('.mealPic').alt = apiRecipe.strMeal;
+                    card.querySelector('h3').textContent = apiRecipe.strMeal;
+                    card.querySelector('.recepieCat').textContent = apiRecipe.strCategory;
+                    card.querySelector('.recepieTime').textContent = apiRecipe.strArea;
+                    card.querySelector('.recepieLevel').textContent = apiRecipe.strTags || '';
+                    card.querySelector('.recetteButton').addEventListener('click', function () {
+                        window.location.href = `recettes.html?recette=${fav.id}`;
+                    });
+                    card.querySelector('.heart-button').addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        let favorites = [];
+                        try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
+                        const index = favorites.findIndex(f => f.id === fav.id);
+                        if (index !== -1) {
+                            favorites.splice(index, 1);
+                            localStorage.setItem('gourmet-favorites', JSON.stringify(favorites));
+                            card.querySelector('.heart-button').closest('.card').remove();
+                            if (!favorites.length) document.getElementById('no-favorites').style.display = 'block';
+                        }
+                    });
+                    row.appendChild(card);
+                }
+            } catch (e) {}
+        }
+    }
+}
 /**
  * GOURMET TECH - Gestionnaire des favoris
  * Gestion complète du système de favoris avec localStorage
@@ -345,12 +433,17 @@ async function translateApiRecipe(recette) {
 
 // Fonction pour créer la carte HTML d'un favori
 function createFavoriteCard(recette) {
+    // Déterminer l'état favori et l'icône
+    const isFavorite = window.favoritesManager.isFavorite(recette.id);
+    const heartIcon = isFavorite ? '../assets/icons/redHeart.jpg' : '../assets/icons/grayHeart.jpg';
+    const altText = isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris';
+
     return `
-        <div class="eachCard">
+        <div class="eachCard" id="favorite-${recette.id}">
             <div class="recette-header">
                 <h3>${recette.nom}</h3>
-                <button onclick="removeFavoriteRecipe('${recette.id}')" style="background: none; border: none; cursor: pointer; padding: 5px;">
-                    <img src="../assets/icons/redHeart.png" alt="Retirer des favoris" style="width: 20px; height: 20px;">
+                <button class="heart-button" style="background: none; border: none; cursor: pointer; padding: 5px;" onclick="window.handleToggleFavorite('${recette.id}', null, this)">
+                    <img src="${heartIcon}" alt="${altText}" style="width: 20px; height: 20px;">
                 </button>
             </div>
             <div class="recette-content">
@@ -368,16 +461,26 @@ function createFavoriteCard(recette) {
     `;
 }
 
-// Fonction pour supprimer une recette des favoris
-function removeFavoriteRecipe(recetteId) {
+// Suppression instantanée de la carte favorite (sans refresh global)
+window.removeFavoriteInstant = function(recetteId) {
     const favorites = JSON.parse(localStorage.getItem('gourmet-favorites') || '[]');
     const recetteASupprimer = favorites.find(fav => fav.id === recetteId);
     const newFavorites = favorites.filter(fav => fav.id !== recetteId);
-    
     localStorage.setItem('gourmet-favorites', JSON.stringify(newFavorites));
-    afficherFavoris();
-    
-    // Utiliser la fonction de notification du fichier externe
+    // Animation de disparition avant suppression du DOM
+    const card = document.getElementById('favorite-' + recetteId);
+    if (card) {
+        card.classList.add('fade-out');
+        setTimeout(() => {
+            card.remove();
+        }, 400);
+    }
+    // Afficher le message si plus de favoris
+    if (newFavorites.length === 0) {
+        const noFavMsg = document.getElementById('no-favorites');
+        if (noFavMsg) noFavMsg.style.display = 'block';
+    }
+    // Notification
     if (recetteASupprimer && typeof showNotification === 'function') {
         showNotification(`❌ "${recetteASupprimer.nom || recetteASupprimer.titre}" retiré des favoris !`, 'remove');
     }

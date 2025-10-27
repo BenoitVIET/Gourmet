@@ -25,8 +25,8 @@ let category = "";
 let preparationTime = "";
 let difficulty = "";
 
-//declaration du tableau avec chaque recette
-let recepies = [
+// Déclaration du tableau avec chaque recette (exposé en global)
+window.recepies = [
     {
         title: "Tarte aux pommes",
         img: "assets/pictures/tart.jpg",
@@ -542,10 +542,7 @@ let recepies = [
     },
 ];
 
-// Export pour utilisation dans d'autres modules
-if (typeof module !== "undefined" && module.exports) {
-    module.exports = { recettes };
-}
+
 
 const filterCategories = document.querySelectorAll(".entryFilter input");
 const filterTimes = document.querySelectorAll(".prepTimeFilter input");
@@ -674,80 +671,54 @@ closeBtnMenu.addEventListener("click", function () {
 // afficher les recettes depuis le tableau:
 // -------------------------
 
-for (let recepie of recepies) {
-    recept = eachCard.content.cloneNode(true);
+// Affichage des cartes de recettes locales et navigation vers recettes.html
+for (let recepie of window.recepies) {
+  const recept = eachCard.content.cloneNode(true);
+  recept.querySelector("h3").textContent = recepie.title;
+  recept.querySelector(".recepieLevel").textContent = recepie.difficulty;
+  recept.querySelector(".recepieTime").textContent = recepie.timePrep;
+  recept.querySelector(".recepieCat").textContent = recepie.category;
+  recept.querySelector(".mealPic").src = recepie.img;
+  recept.querySelector(".mealPic").alt = recepie.alt;
 
-    recept.querySelector("h3").textContent = recepie.title;
-    recept.querySelector(".recepieLevel").textContent = recepie.difficulty;
-    recept.querySelector(".recepieTime").textContent = recepie.timePrep;
-    recept.querySelector(".recepieCat").textContent = recepie.category;
-    recept.querySelector(".mealPic").src = recepie.img;
-    recept.querySelector(".mealPic").alt = recepie.alt;
+  // Bouton favoris
+  const heartButton = recept.querySelector(".heart-button");
+  if (heartButton) {
+    const recipeId = recepie.title.toLowerCase().replace(/\s+/g, "").replace(/[^a-z0-9]/g, "");
+    let favorites = [];
+    try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
+    const isFavorite = favorites.some(fav => fav.id === recipeId);
+    heartButton.src = isFavorite ? "assets/icons/redHeart.png" : "assets/icons/grayHeart.png";
+    heartButton.alt = isFavorite ? "Retirer des favoris" : "Ajouter aux favoris";
+    heartButton.addEventListener("click", function (e) {
+      e.stopPropagation();
+      let favorites = [];
+      try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
+      const index = favorites.findIndex(fav => fav.id === recipeId);
+      if (index === -1) {
+        favorites.push({ id: recipeId });
+        heartButton.src = "assets/icons/redHeart.png";
+        heartButton.alt = "Retirer des favoris";
+      } else {
+        favorites.splice(index, 1);
+        heartButton.src = "assets/icons/grayHeart.png";
+        heartButton.alt = "Ajouter aux favoris";
+      }
+      localStorage.setItem('gourmet-favorites', JSON.stringify(favorites));
+    });
+  }
 
-    // Ajouter l'événement au bouton cœur
-    const heartButton = recept.querySelector(".heart-button");
-    if (heartButton) {
-        // Créer un ID unique pour chaque recette basé sur le titre
-        const recipeId = recepie.title
-            .toLowerCase()
-            .replace(/\s+/g, "")
-            .replace(/[^a-z0-9]/g, "");
+  // Bouton voir la recette
+  const viewButton = recept.querySelector(".recetteButton");
+  if (viewButton) {
+    const recipeId = recepie.title.toLowerCase().replace(/\s+/g, "").replace(/[^a-z0-9]/g, "");
+    viewButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = `html/recettes.html?recette=${recipeId}`;
+    });
+  }
 
-        // Supprimer l'ancien onclick
-        heartButton.removeAttribute("onclick");
-
-        // Ajouter le nouvel événement
-        heartButton.addEventListener("click", function (e) {
-            e.stopPropagation();
-
-            // Créer les données de recette compatibles
-            const recetteData = {
-                titre: recepie.title,
-                image: recepie.img,
-                categorie: recepie.category,
-                temps: "30 minutes", // Valeur par défaut
-                difficulte: recepie.difficulty,
-                nbPersonnes: recepie.nbPersonnes || 4,
-                ingredients: recepie.ingredients || [],
-                etapes: recepie.etapes || [],
-            };
-
-            // Appeler la fonction de gestion des favoris
-            if (typeof window.handleToggleFavorite !== "undefined") {
-                window.handleToggleFavorite(recipeId, recetteData, this);
-            } else {
-                // Fallback simple si la fonction n'est pas disponible
-                if (this.src.includes("grayHeart")) {
-                    this.src = "assets/icons/redHeart.png";
-                    this.alt = "Retirer des favoris";
-                } else {
-                    this.src = "assets/icons/grayHeart.png";
-                    this.alt = "Ajouter aux favoris";
-                }
-            }
-        });
-    }
-
-    // Ajouter l'événement au bouton "Voir la recette"
-    const viewButton = recept.querySelector(".recetteButton");
-    if (viewButton) {
-        // Créer un ID unique pour chaque recette
-        const recipeId = recepie.title
-            .toLowerCase()
-            .replace(/\s+/g, "")
-            .replace(/[^a-z0-9]/g, "");
-
-        // Supprimer l'ancien onclick
-        viewButton.removeAttribute("onclick");
-
-        // Ajouter le nouvel événement
-        viewButton.addEventListener("click", function (e) {
-            e.preventDefault();
-            window.location.href = `html/recettes.html?recette=${recipeId}`;
-        });
-    }
-
-    content.appendChild(recept);
+  content.appendChild(recept);
 }
 
 // ------------------------

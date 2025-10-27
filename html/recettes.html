@@ -122,5 +122,254 @@
                     <p>&copy; 2025 GourmetTech - Tous droits réservés</p>
                 </div>
             </footer>
+        <script>
+        // Script d'affichage dynamique de la recette (locale ou API)
+        function getRecipeIdFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('recette');
+        }
+
+        function showRecipeError(message) {
+            let errorContainer = document.getElementById('errorContainer');
+            if (!errorContainer) {
+                errorContainer = document.createElement('div');
+                errorContainer.id = 'errorContainer';
+                errorContainer.style.margin = '30px auto';
+                errorContainer.style.maxWidth = '500px';
+                errorContainer.style.textAlign = 'center';
+                document.body.appendChild(errorContainer);
+            }
+            errorContainer.innerHTML = `<div style="background:#f8d7da;color:#721c24;padding:20px;border-radius:8px;font-size:1.2em;">${message}</div>`;
+            errorContainer.style.display = 'block';
+        }
+
+        async function fetchApiRecipeById(id) {
+            // TheMealDB: recherche par id
+            const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                if (data.meals && data.meals.length > 0) {
+                    return data.meals[0];
+                }
+            } catch (e) {}
+            return null;
+        }
+
+        function updateFavoriButton(recetteId, isApi, titre, img) {
+            const btn = document.getElementById('favoriButton');
+            let favorites = [];
+            try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
+            const isFavorite = favorites.some(fav => fav.id === recetteId);
+            btn.textContent = isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris';
+            btn.onclick = function () {
+                let favorites = [];
+                try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
+                const index = favorites.findIndex(fav => fav.id === recetteId);
+                if (index === -1) {
+                    favorites.push({ id: recetteId });
+                    btn.textContent = 'Retirer des favoris';
+                } else {
+                    favorites.splice(index, 1);
+                    btn.textContent = 'Ajouter aux favoris';
+                }
+                localStorage.setItem('gourmet-favorites', JSON.stringify(favorites));
+            };
+        }
+
+        async function fetchApiSuggestions(category) {
+            // Correction du mapping catégorie locale → API
+            const map = {
+                'dessert': 'Dessert',
+                'plat': 'Beef',
+                'entrée': 'Starter',
+                'chicken': 'Chicken',
+                'vegetarian': 'Vegetarian',
+                'seafood': 'Seafood',
+                'miscellaneous': 'Miscellaneous'
+            };
+            let apiCat = map[category.toLowerCase()] || 'Miscellaneous';
+            const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${encodeURIComponent(apiCat)}`;
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                if (data.meals) {
+                    return data.meals.slice(0, 3); // 3 suggestions
+                }
+            } catch (e) {}
+            return [];
+        }
+
+        document.addEventListener('DOMContentLoaded', async function () {
+            const recetteId = getRecipeIdFromUrl();
+            if (!recetteId) {
+                showRecipeError('Aucune recette sélectionnée.');
+                return;
+            }
+
+            // Chercher la recette locale
+            let recette = null;
+            if (window.recepies) {
+                recette = window.recepies.find(r => r.title.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, '') === recetteId);
+            }
+
+            let isApiRecipe = false;
+            let apiRecipe = null;
+            // Si non trouvée en local, tenter API (TheMealDB)
+            if (!recette) {
+                // On suppose que l'ID API est numérique (TheMealDB)
+                if (/^\d+$/.test(recetteId)) {
+                    apiRecipe = await fetchApiRecipeById(recetteId);
+                    if (apiRecipe) isApiRecipe = true;
+                }
+            }
+
+            if (!recette && !isApiRecipe) {
+                showRecipeError('Recette non trouvée.');
+                return;
+            }
+
+            document.getElementById('recetteContainer').classList.remove('hidden');
+            if (recette) {
+                document.getElementById('titreRecette').textContent = recette.title;
+                document.getElementById('imageRecette').src = '../' + recette.img;
+                document.getElementById('imageRecette').alt = recette.alt || recette.title;
+                document.getElementById('categorieRecette').textContent = recette.category;
+                document.getElementById('tempsRecette').textContent = recette.timePrep;
+                document.getElementById('difficulteRecette').textContent = recette.difficulty;
+                document.getElementById('nbPersonnesRecette').textContent = recette.nbPersonnes;
+
+                // Favoris
+                updateFavoriButton(recette.title.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, ''), false, recette.title, recette.img);
+
+                // Ingrédients
+                const ingredientsList = document.getElementById('ingredientsList');
+                ingredientsList.innerHTML = '';
+                if (recette.ingredients && Array.isArray(recette.ingredients)) {
+                    recette.ingredients.forEach(ingredient => {
+                        const li = document.createElement('li');
+                        li.textContent = ingredient;
+                        ingredientsList.appendChild(li);
+                    });
+                }
+
+                // Étapes
+                const etapesList = document.getElementById('etapesList');
+                etapesList.innerHTML = '';
+                if (recette.etapes && Array.isArray(recette.etapes)) {
+                    recette.etapes.forEach(etape => {
+                        const li = document.createElement('li');
+                        li.textContent = etape;
+                        etapesList.appendChild(li);
+                    });
+                }
+
+                // Suggestions API uniquement
+                const suggestionsList = document.getElementById('suggestionsList');
+                suggestionsList.innerHTML = '';
+                const apiSuggestions = await fetchApiSuggestions(recette.category);
+                apiSuggestions.forEach(sugg => {
+                    const div = document.createElement('div');
+                    div.className = 'suggestion-card';
+                    // Ajout du bouton coeur
+                    let favorites = [];
+                    try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
+                    const isFavorite = favorites.some(fav => fav.id === sugg.idMeal);
+                    const heartSrc = isFavorite ? "../assets/icons/redHeart.png" : "../assets/icons/grayHeart.png";
+                    div.innerHTML = `<img src="${sugg.strMealThumb}" alt="${sugg.strMeal}" style="width:60px;height:60px;object-fit:cover;margin-right:8px;vertical-align:middle;"> <span>${sugg.strMeal}</span> <img class='heart-button' src='${heartSrc}' style='width:24px;cursor:pointer;vertical-align:middle;' title='Favori'>`;
+                    div.addEventListener('click', function (e) {
+                        if (e.target.classList.contains('heart-button')) {
+                            e.stopPropagation();
+                            let favorites = [];
+                            try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
+                            const index = favorites.findIndex(fav => fav.id === sugg.idMeal);
+                            if (index === -1) {
+                                favorites.push({ id: sugg.idMeal });
+                                div.querySelector('.heart-button').src = "../assets/icons/redHeart.png";
+                            } else {
+                                favorites.splice(index, 1);
+                                div.querySelector('.heart-button').src = "../assets/icons/grayHeart.png";
+                            }
+                            localStorage.setItem('gourmet-favorites', JSON.stringify(favorites));
+                        } else {
+                            window.location.href = `recettes.html?recette=${sugg.idMeal}`;
+                        }
+                    });
+                    suggestionsList.appendChild(div);
+                });
+            } else if (isApiRecipe && apiRecipe) {
+                document.getElementById('titreRecette').textContent = apiRecipe.strMeal;
+                document.getElementById('imageRecette').src = apiRecipe.strMealThumb;
+                document.getElementById('imageRecette').alt = apiRecipe.strMeal;
+                document.getElementById('categorieRecette').textContent = apiRecipe.strCategory;
+                document.getElementById('tempsRecette').textContent = apiRecipe.strTags || '';
+                document.getElementById('difficulteRecette').textContent = apiRecipe.strArea || '';
+                document.getElementById('nbPersonnesRecette').textContent = '';
+
+                // Favoris
+                updateFavoriButton(apiRecipe.idMeal, true, apiRecipe.strMeal, apiRecipe.strMealThumb);
+
+                // Ingrédients
+                const ingredientsList = document.getElementById('ingredientsList');
+                ingredientsList.innerHTML = '';
+                for (let i = 1; i <= 20; i++) {
+                    const ingredient = apiRecipe[`strIngredient${i}`];
+                    const measure = apiRecipe[`strMeasure${i}`];
+                    if (ingredient && ingredient.trim() !== '') {
+                        const li = document.createElement('li');
+                        li.textContent = `${ingredient}${measure ? ' - ' + measure : ''}`;
+                        ingredientsList.appendChild(li);
+                    }
+                }
+
+                // Étapes
+                const etapesList = document.getElementById('etapesList');
+                etapesList.innerHTML = '';
+                if (apiRecipe.strInstructions) {
+                    apiRecipe.strInstructions.split(/\r?\n/).forEach(etape => {
+                        if (etape.trim() !== '') {
+                            const li = document.createElement('li');
+                            li.textContent = etape.trim();
+                            etapesList.appendChild(li);
+                        }
+                    });
+                }
+
+                // Suggestions API uniquement
+                const suggestionsList = document.getElementById('suggestionsList');
+                suggestionsList.innerHTML = '';
+                const apiSuggestions = await fetchApiSuggestions(apiRecipe.strCategory);
+                apiSuggestions.forEach(sugg => {
+                    const div = document.createElement('div');
+                    div.className = 'suggestion-card';
+                    // Ajout du bouton coeur
+                    let favorites = [];
+                    try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
+                    const isFavorite = favorites.some(fav => fav.id === sugg.idMeal);
+                    const heartSrc = isFavorite ? "../assets/icons/redHeart.png" : "../assets/icons/grayHeart.png";
+                    div.innerHTML = `<img src="${sugg.strMealThumb}" alt="${sugg.strMeal}" style="width:60px;height:60px;object-fit:cover;margin-right:8px;vertical-align:middle;"> <span>${sugg.strMeal}</span> <img class='heart-button' src='${heartSrc}' style='width:24px;cursor:pointer;vertical-align:middle;' title='Favori'>`;
+                    div.addEventListener('click', function (e) {
+                        if (e.target.classList.contains('heart-button')) {
+                            e.stopPropagation();
+                            let favorites = [];
+                            try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
+                            const index = favorites.findIndex(fav => fav.id === sugg.idMeal);
+                            if (index === -1) {
+                                favorites.push({ id: sugg.idMeal });
+                                div.querySelector('.heart-button').src = "../assets/icons/redHeart.png";
+                            } else {
+                                favorites.splice(index, 1);
+                                div.querySelector('.heart-button').src = "../assets/icons/grayHeart.png";
+                            }
+                            localStorage.setItem('gourmet-favorites', JSON.stringify(favorites));
+                        } else {
+                            window.location.href = `recettes.html?recette=${sugg.idMeal}`;
+                        }
+                    });
+                    suggestionsList.appendChild(div);
+                });
+            }
+        });
+        </script>
         </body>
     </html>

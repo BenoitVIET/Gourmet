@@ -1,3 +1,69 @@
+/* ----------- FAVORIS.HTML ----------- */
+.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.4s, transform 0.4s;
+}
+.recepies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: flex-start;
+}
+#favoris-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    width: 100%;
+}
+.card {
+    background-color: var(--color1);
+    border-radius: 15px;
+    box-shadow: 0 2px 8px var(--color2);
+    padding: 15px;
+    width: 300px;
+    margin: 2vh 0;
+    position: relative;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+.mealPic {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.heart-buttonDiv {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.heart-button {
+    border-radius: 20px;
+    height: 30px;
+    width: 30px;
+    background-color: var(--color4);
+    cursor: pointer;
+}
+.recepiePresentation {
+    margin-top: 10px;
+}
+.recetteButton {
+    background-color: var(--color3);
+    color: var(--color1);
+    border: none;
+    height: 32px;
+    margin: 10px 5px;
+    font-size: 1em;
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.recetteButton:hover {
+    background-color: color-mix(in srgb, var(--color3) 20%, white);
+    color: var(--color3);
+}
 
 .recepies {
     display: flex;
@@ -111,6 +177,20 @@
         margin: auto;
         margin-top: 20px;
         display: flex;
+    }
+}
+/* Responsive favoris cards */
+@media (max-width: 900px) {
+    .recepies, #favoris-list {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+    .card {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 2vh 0;
     }
 }
 

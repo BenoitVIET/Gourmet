@@ -9,9 +9,9 @@
             href="../assets/icons/logo.jpg"
             type="image/x-icon"
         />
-        <script defer src="../main.js"></script>
+    <script defer src="../js/favorites-ui.js"></script>
+    <script defer src="../main.js"></script>
         <script defer src="../js/utils.js"></script>
-        <script defer src="../js/recettes-data.js"></script>
         <script defer src="../js/api-functions.js"></script>
         <script defer src="../js/favorites-manager.js"></script>
         <script defer src="../js/recipe-display.js"></script>
@@ -95,9 +95,43 @@
             </div>
 
             <!-- Contenu des recettes favorites -->
-            <div id="favoris-list" class="recepies">
-                <!-- Les recettes favorites seront ajoutées ici dynamiquement -->
-            </div>
+            <section class="recepies">
+                <div id="favoris-list"></div>
+                <template class="eachCardFavoris">
+                    <div class="card">
+                        <img class="mealPic" src="" alt=""/>
+                        <div class="heart-buttonDiv">
+                            <img class="heart-button" src="../assets/icons/redHeart.png" alt="Favori" style="cursor: pointer;">
+                        </div>
+                        <div class="recepiePresentation recette-header-index">
+                            <h3></h3>
+                            <div class="infoRecepie">
+                                <p class="recepieCat"></p>
+                                <p class="recepieTime"></p>
+                                <p class="recepieLevel"></p>
+                            </div>
+                            <button class="recetteButton">Voir la recette</button>
+                        </div>
+                    </div>
+                </template>
+                    <template class="eachCardFavoris">
+                        <div class="card">
+                            <img class="mealPic" src="" alt=""/>
+                            <div class="heart-buttonDiv">
+                                <img class="heart-button" src="../assets/icons/redHeart.png" alt="Favori" style="cursor: pointer;">
+                            </div>
+                            <div class="recepiePresentation recette-header-index">
+                                <h3></h3>
+                                <div class="infoRecepie">
+                                    <p class="recepieCat"></p>
+                                    <p class="recepieTime"></p>
+                                    <p class="recepieLevel"></p>
+                                </div>
+                                <button class="recetteButton">Voir la recette</button>
+                            </div>
+                        </div>
+                    </template>
+            </section>
         </main>
 
         <footer>
@@ -107,32 +141,23 @@
                     <h4>Navigation</h4>
                     <ul class="footer-nav-list">
                         <li class="footer-nav-item">
-                            <a href="../index.html" class="footer-nav-link"
-                                >Accueil</a
-                            >
+                            <a href="../index.html" class="footer-nav-link">Accueil</a>
                         </li>
                         <li class="footer-nav-item">
-                            <a href="recettes.html" class="footer-nav-link"
-                                >Ajouter une recette</a
-                            >
+                            <a href="recettes.html" class="footer-nav-link">Ajouter une recette</a>
                         </li>
                         <li class="footer-nav-item">
-                            <a href="favoris.html" class="footer-nav-link"
-                                >Mes favoris</a
-                            >
+                            <a href="favoris.html" class="footer-nav-link">Mes favoris</a>
                         </li>
                         <li class="footer-nav-item">
-                            <a href="a_propos.html" class="footer-nav-link"
-                                >À propos</a
-                            >
+                            <a href="a_propos.html" class="footer-nav-link">À propos</a>
                         </li>
                     </ul>
                 </div>
                 <div class="navAbout">
                     <h4>À propos de GourmetTech</h4>
                     <p>
-                        GourmetTech est une plateforme de recettes culinaires
-                        interactives, dans le cadre d'un projet pédagogique.
+                        GourmetTech est une plateforme de recettes culinaires interactives, dans le cadre d'un projet pédagogique.
                     </p>
                 </div>
             </section>
@@ -141,5 +166,13 @@
                 <p>&copy; 2025 GourmetTech - Tous droits réservés</p>
             </div>
         </footer>
+        <script>
+        // Appel JS centralisé pour afficher les favoris
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof window.afficherFavoris === 'function') {
+                window.afficherFavoris();
+            }
+        });
+        </script>
     </body>
 </html>

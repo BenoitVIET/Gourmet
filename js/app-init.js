@@ -21,18 +21,21 @@ window.apiManager = new APIManager();
  * Fonction globale pour basculer les favoris (compatibilité)
  */
 window.handleToggleFavorite = async function(recetteId, recetteData, heartElement) {
-    const result = await favoritesManager.toggleFavorite(recetteId, recetteData);
-    
+    const result = await favoritesManager.toggleFavorite(recetteId, recetteData, heartElement);
     // Mettre à jour l'icône du cœur
     if (heartElement) {
         favoritesManager.updateHeartIcon(heartElement, result.action === 'add');
     }
-    
+    // Rafraîchir l'affichage des favoris après un court délai pour garantir la disparition immédiate
+    if (typeof afficherFavoris === 'function' && document.getElementById('favoris-list')) {
+        setTimeout(() => {
+            afficherFavoris();
+        }, 10);
+    }
     // Afficher la notification
     if (typeof showNotification === 'function') {
         showNotification(result.message, result.action);
     }
-    
     return result;
 };
 
