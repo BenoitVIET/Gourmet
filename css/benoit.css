@@ -16,17 +16,19 @@
     gap: 24px;
     width: 100%;
 }
+
 .card {
     background-color: var(--color1);
     border-radius: 15px;
     box-shadow: 0 2px 8px var(--color2);
     padding: 15px;
-    width: 300px;
     margin: 2vh 0;
+    width: 30%;
     position: relative;
     transition: transform 0.2s;
     display: flex;
     flex-direction: column;
+     margin: auto;
 }
 .mealPic {
     width: 100%;
@@ -90,7 +92,6 @@
 }
 
 .recette-detail { 
-    max-width: 800px;
     margin: 20px auto; 
     padding: 20px;
     padding-top: 120px;
@@ -167,7 +168,10 @@
     .recette-info-grid .filterMain {
         padding: 5px;
     }
-}
+  
+    }
+
+  
 
 
 @media all and (max-width: 992px) {
@@ -180,17 +184,9 @@
     }
 }
 /* Responsive favoris cards */
-@media (max-width: 900px) {
-    .recepies, #favoris-list {
-        flex-direction: column;
-        gap: 16px;
-        align-items: stretch;
-    }
-    .card {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        margin: 2vh 0;
+@media all and (max-width: 900px) {
+      .card {
+         width: 47%;
     }
 }
 
@@ -201,4 +197,12 @@
     }
     form button {
         padding: 4px;
+    }
+    @media all and (max-width: 768px) {
+        .card{
+         width: 90%;
+        }
+        .mealPic{
+            height: 40vh;
+        }
     }

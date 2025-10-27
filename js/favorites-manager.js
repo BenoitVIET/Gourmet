@@ -14,18 +14,8 @@ window.afficherFavoris = async function () {
     let locales = window.recepies || [];
     const template = document.querySelector('.eachCardFavoris');
     favorisList.innerHTML = '';
-    let row = null;
-    let count = 0;
     for (let fav of favorites) {
         let recette = locales.find(r => r.title.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, '') === fav.id);
-        if (count % 3 === 0) {
-            row = document.createElement('div');
-            row.style.display = 'flex';
-            row.style.gap = '24px';
-            row.style.marginBottom = '24px';
-            favorisList.appendChild(row);
-        }
-        count++;
         if (recette) {
             const card = template.content.cloneNode(true);
             card.querySelector('.mealPic').src = '../' + recette.img;
@@ -49,7 +39,7 @@ window.afficherFavoris = async function () {
                     if (!favorites.length) document.getElementById('no-favorites').style.display = 'block';
                 }
             });
-            row.appendChild(card);
+            favorisList.appendChild(card);
         } else if (/^\d+$/.test(fav.id)) {
             // Recette API
             const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${fav.id}`;
@@ -80,7 +70,7 @@ window.afficherFavoris = async function () {
                             if (!favorites.length) document.getElementById('no-favorites').style.display = 'block';
                         }
                     });
-                    row.appendChild(card);
+                    favorisList.appendChild(card);
                 }
             } catch (e) {}
         }
