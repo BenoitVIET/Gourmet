@@ -30,12 +30,7 @@
     flex-direction: column;
      margin: auto;
 }
-.mealPic {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-}
+
 .heart-buttonDiv {
     position: absolute;
     top: 15px;
@@ -202,10 +197,7 @@
         .card{
          width: 90%;
         }
-        .mealPic{
-            height: 40vh;
-        }
-    }
+ }
 
 
 

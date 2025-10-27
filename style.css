@@ -79,7 +79,7 @@ header {
     background-color: var(--color3);
     position: fixed;
     height: 100lvh;
-    width: 25vw;
+    min-width: 25vw;
     top: 0;
     right: 0;
     display: flex;
@@ -438,16 +438,16 @@ main {
     background-color: var(--color5);
 }
 
-.recetteButton {
+ .recepieButton {
     background-color: var(--color3);
     color: var(--color1);
     border: none;
-    height: 4vh;
-    margin: 10px 5px;
-    font-size: 0.6em;
-    padding: 4px;
-    border-radius:2px;
-    
+    height: 32px;
+    margin: 100px 5px 10px 5px;
+    font-size: 1em;
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .recetteButton:hover {
@@ -578,6 +578,19 @@ form {
         width: 98%;
         margin-top: 20px;
     }
+    .toggle {
+    background-color: var(--color3);
+    position: fixed;
+    height: 100lvh;
+    min-width: 25vw;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+       
+   }
+
 
     #content {
         display: flex;
@@ -588,7 +601,7 @@ form {
     }
 
     .mealPic {
-        height: 40vh;
+        height: 50vh;
     }
 
 }
@@ -1031,6 +1044,24 @@ SUGGESTIONS API - CSS pour les recettes similaires
     .btn-view-suggestion {
         padding: 6px 12px;
         font-size: 0.8rem;
+    }
+     .toggle {
+     width: 100%;
+     padding: 15vh;
+     }
+     
+    .toggle li{
+        display: flex;
+        justify-content: center;
+
+
+   
+     }
+
+    .closeBtnMenu{
+        position: absolute;
+        bottom: 10vh;
+        right: 10vh;
     }
 }
 
