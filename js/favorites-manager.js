@@ -500,7 +500,7 @@ function viewFavoriteRecipe(recetteId) {
 }
 
 // Rendre les fonctions globales pour les onclick dans le HTML
-window.removeFavoriteRecipe = removeFavoriteRecipe;
+window.removeFavoriteRecipe = removeFavoriteInstant;
 window.viewFavoriteRecipe = viewFavoriteRecipe;
 window.afficherFavoris = afficherFavoris;
 
@@ -508,6 +508,3 @@ window.afficherFavoris = afficherFavoris;
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { FavoritesManager, favoritesManager };
 }
-
-
-l

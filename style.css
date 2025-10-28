@@ -25,7 +25,6 @@ body {
     display: flex;
     flex-direction: column;
 }
-
 :root {
     --color1: #ffffff;
     --color2: #000000;
@@ -383,12 +382,12 @@ main {
     display: flex;
     opacity: 0.5;
 }
-.moreImages:hover {
+.moreImages:hover, .mealPic {
     display: flex;
     opacity: 1;
 }
 
-.moreImages:hover > :not(:hover) {
+.moreImages:hover > :not(:hover){
     display: flex;
     opacity: 0.5;
 }
@@ -404,10 +403,9 @@ main {
     object-position: top;
 }
 .mealPic2:hover,
-.mealPic3:hover {
+.mealPic3:hover{
     cursor: pointer;
-    transition: 1s;
-    
+    transition: 0.2s;
 }
 
 .heart-buttonDiv {
@@ -554,10 +552,6 @@ form {
         justify-content: space-evenly;
         width: 98%;
         margin: auto;
-    }
-
-    .mealPic {
-        height: 35vh;
     }
 
     .recepie {
