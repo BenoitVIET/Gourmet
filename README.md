@@ -13,25 +13,26 @@ GourmetTech est une plateforme de recettes qui combine des recettes locales avec
 ### Fonctionnalités principales
 
 ✨ **Découverte de recettes**
-- Catalogue de recettes locales variées
-- Intégration de recettes internationales via l'API TheMealDB
-- Suggestions de recettes similaires
+- Catalogue de recettes locales variées (developpé par Laura)
+- Intégration de recettes internationales via l'API TheMealDB (developpé par Benoît)
+- Suggestions de recettes similaires (developpé par Benoît)
+- disposition de plusieurs photos par recette (developpé par Laura)
 
 🔍 **Recherche et filtres**
-- Recherche par nom de recette
-- Filtrage par catégorie (entrée, plat, dessert)
-- Filtrage par temps de préparation
-- Filtrage par niveau de difficulté
+- Recherche par nom de recette (developpé par Laura)
+- Filtrage par catégorie (entrée, plat, dessert) (developpé par Laura)
+- Filtrage par temps de préparation (developpé par Laura)
+- Filtrage par niveau de difficulté (developpé par Laura)
 
 ❤️ **Système de favoris**
-- Ajout/retrait de recettes aux favoris
-- Sauvegarde persistante avec localStorage
-- Page dédiée aux recettes favorites
+- Ajout/retrait de recettes aux favoris (developpé par Benoît)
+- Sauvegarde persistante avec localStorage (developpé par Benoît)
+- Page dédiée aux recettes favorites (developpé par Benoît)
 
 🎨 **Interface personnalisable**
-- Mode clair/sombre
-- Design responsive (mobile, tablette, desktop)
-- Animations et transitions fluides
+- Mode clair/sombre avec local storage (developpé par Laura)
+- Design responsive (mobile, tablette, desktop) (developpé par Laura)
+- Animations et transitions fluides (developpé par Benoît et Laura)
 
 ---
 
@@ -105,28 +106,28 @@ cd gourmettech
 ## 🎯 Fonctionnalités détaillées
 
 ### Page d'accueil
-- Affichage dynamique des recettes locales
-- Système de recherche en temps réel
-- Filtres multiples (catégorie, temps, difficulté)
-- Ajout rapide aux favoris
+- Affichage dynamique des recettes locales (developpé par Laura)
+- Système de recherche en temps réel (developpé par Laura)
+- Filtres multiples (catégorie, temps, difficulté) (developpé par Laura)
+- Ajout rapide aux favoris (developpé par Benoît)
 
-### Page de détail
-- Informations complètes sur la recette
-- Liste des ingrédients avec quantités
-- Étapes de préparation numérotées
-- Suggestions de recettes similaires via l'API
-- Gestion des favoris
+### Page de recette
+- Informations complètes sur la recette (developpé par Benoît)
+- Liste des ingrédients avec quantités (developpé par Benoît)
+- Étapes de préparation numérotées (developpé par Benoît)
+- Suggestions de recettes similaires via l'API (developpé par Benoît)
+- Gestion des favoris (developpé par Benoît)
 
 ### Page des favoris
-- Liste de toutes les recettes sauvegardées
-- Support des recettes locales et API
-- Suppression rapide des favoris
-- Message si aucun favori
+- Liste de toutes les recettes sauvegardées (developpé par Benoît)
+- Support des recettes locales et API (developpé par Benoît)
+- Suppression rapide des favoris (developpé par Benoît)
+- Message si aucun favori (developpé par Benoît)
 
 ### Page à propos
-- Présentation du projet
-- Formulaire de contact
-- FAQ interactive (accordéon)
+- Présentation du projet (developpé par Laura)
+- Formulaire de contact (developpé par Laura)
+- FAQ interactive (accordéon) (developpé par Laura)
 
 ---
 
@@ -199,7 +200,7 @@ Pour ajouter des recettes, modifiez le tableau `window.recepies` dans `main.js` 
 
 ## 👨‍💻 Auteur
 
-Projet réalisé dans le cadre d'une formation en développement web.
+Projet réalisé par Benopît et Laura dans le cadre d'une formation en développement web.
 
 ---
 
@@ -214,6 +215,7 @@ Ce projet est un projet pédagogique à usage éducatif.
 - API TheMealDB pour les recettes internationales
 - Google Fonts pour les polices utilisées
 - Tous les testeurs qui ont contribué à améliorer l'application
+- remerciement à Maheva et Bertrant, nos formateurs dévoués corps et âmes durant ce projet.
 
 ---
 
