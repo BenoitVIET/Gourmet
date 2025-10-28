@@ -681,7 +681,7 @@ for (let recepie of window.recepies) {
   recept.querySelector(".mealPic").src = recepie.img;
   recept.querySelector(".mealPic").alt = recepie.alt;
 
- // Bouton favoris
+  // Bouton favoris
   const heartButton = recept.querySelector(".heart-button");
   if (heartButton) {
     const recipeId = recepie.title.toLowerCase().replace(/\s+/g, "").replace(/[^a-z0-9]/g, "");

@@ -33,10 +33,13 @@ window.afficherFavoris = async function () {
                 try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
                 const index = favorites.findIndex(f => f.id === fav.id);
                 if (index !== -1) {
+                    const recetteASupprimer = favorites[index];
                     favorites.splice(index, 1);
                     localStorage.setItem('gourmet-favorites', JSON.stringify(favorites));
-                    card.querySelector('.heart-button').closest('.card').remove();
-                    if (!favorites.length) document.getElementById('no-favorites').style.display = 'block';
+                    if (recetteASupprimer && typeof showNotification === 'function') {
+                        showNotification(`❌ "${recetteASupprimer.nom || recetteASupprimer.titre}" retiré des favoris !`, 'remove');
+                    }
+                    setTimeout(() => window.afficherFavoris(), 450);
                 }
             });
             favorisList.appendChild(card);
@@ -58,18 +61,21 @@ window.afficherFavoris = async function () {
                     card.querySelector('.recetteButton').addEventListener('click', function () {
                         window.location.href = `recettes.html?recette=${fav.id}`;
                     });
-                    card.querySelector('.heart-button').addEventListener('click', function (e) {
-                        e.stopPropagation();
-                        let favorites = [];
-                        try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
-                        const index = favorites.findIndex(f => f.id === fav.id);
-                        if (index !== -1) {
-                            favorites.splice(index, 1);
-                            localStorage.setItem('gourmet-favorites', JSON.stringify(favorites));
-                            card.querySelector('.heart-button').closest('.card').remove();
-                            if (!favorites.length) document.getElementById('no-favorites').style.display = 'block';
-                        }
-                    });
+                        card.querySelector('.heart-button').addEventListener('click', function (e) {
+                            e.stopPropagation();
+                            let favorites = [];
+                            try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
+                            const index = favorites.findIndex(f => f.id === fav.id);
+                            if (index !== -1) {
+                                const recetteASupprimer = favorites[index];
+                                favorites.splice(index, 1);
+                                localStorage.setItem('gourmet-favorites', JSON.stringify(favorites));
+                                if (recetteASupprimer && typeof showNotification === 'function') {
+                                    showNotification(`❌ "${recetteASupprimer.nom || apiRecipe.strMeal}" retiré des favoris !`, 'remove');
+                                }
+                                setTimeout(() => window.afficherFavoris(), 450);
+                            }
+                        });
                     favorisList.appendChild(card);
                 }
             } catch (e) {}
