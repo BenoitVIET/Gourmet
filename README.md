@@ -1,59 +1,220 @@
-GourmetTech
+# 🍽️ GourmetTech
 
-GourmetTech est une plateforme interactive de recettes culinaires permettant aux utilisateurs de découvrir, enregistrer et gérer leurs recettes favorites, tout en explorant de nouvelles options via une API externe.
+**Plateforme de recettes culinaires interactive**
 
-Structure du Projet
-Gourmet/
-│├── assets/
-│   ├── icons/                # Icônes pour le menu, mode sombre/clair, favoris, et logo
-│   └── pictures/             # Images des recettes préenregistrées
-│├── css/
-│   └── benoit.css            # Styles complémentaires pour la gestion des favoris
-│├── html/
-│   ├── a_propos.html         # Page À propos
-│   ├── favoris.html          # Page des favoris
-│   └── recettes.html         # Page détaillée des recettes
-│├── js/
-│   ├── api-functions.js      # Gestion des appels API
-│   ├── app-init.js           # Initialisation de l'application
-│   ├── favorites-manager.js  # Gestion des favoris
-│   ├── favorites-ui.js       # Interface utilisateur des favoris
-│   ├── recipe-display.js     # Affichage des recettes
-│   └── utils.js              # Fonctions utilitaires
-│├── projet/
-│   ├── .gitignore            # Fichiers à ignorer par Git
-│   ├── maquettes.jpeg        # Maquettes du projet
-│   ├── README.md             # Documentation du projet
-│   ├── TP1                   # Cahier des charges du TP1
-│   └── TP2                   # Cahier des charges du TP2
-│└── index.html                # Page d'accueil
-└── main.js                   # Script principal
-└── style.css                 # Styles principauxFonctionnalités
+Une application web permettant de découvrir, rechercher et gérer ses recettes favorites, développée dans le cadre d'un projet pédagogique.
 
-Principales
+---
 
-Découverte de Recettes : Les utilisateurs peuvent découvrir des recettes aléatoires grâce à l'intégration de l'API TheMealDB.
-Gestion des Favoris : Ajouter des recettes à une liste de favoris persistante via le localStorage.
-Mode Clair/Sombre : Basculer entre les modes d'affichage pour une meilleure lisibilité en fonction des préférences de l'utilisateur.
+## 📋 À propos du projet
 
-Pages
+GourmetTech est une plateforme de recettes qui combine des recettes locales avec l'intégration de l'API TheMealDB pour offrir une grande variété de plats du monde entier. L'application propose une interface intuitive et responsive, accessible sur tous les appareils.
 
-Index.html : Page d'accueil avec la liste des recettes et options de filtrage.
-À propos : Informations sur GourmetTech et ses objectifs.
-Favoris : Liste des recettes préférées enregistrées par l'utilisateur.
-Recettes : Détails complets d'une recette, y compris les ingrédients et les étapes.
+### Fonctionnalités principales
 
-API TheMealDB
+✨ **Découverte de recettes**
+- Catalogue de recettes locales variées
+- Intégration de recettes internationales via l'API TheMealDB
+- Suggestions de recettes similaires
 
-Génération de Recettes Aléatoires : Intégration complète permettant de récupérer et d'afficher des recettes provenant de l'API publique TheMealDB.
+🔍 **Recherche et filtres**
+- Recherche par nom de recette
+- Filtrage par catégorie (entrée, plat, dessert)
+- Filtrage par temps de préparation
+- Filtrage par niveau de difficulté
 
-Installation
+❤️ **Système de favoris**
+- Ajout/retrait de recettes aux favoris
+- Sauvegarde persistante avec localStorage
+- Page dédiée aux recettes favorites
 
-Cloner le dépôt GitHub.
-Ouvrir index.html dans un navigateur pour commencer à utiliser l'application.
-Pour des tests locaux avec API, s'assurer que les requêtes sortantes sont autorisées.
+🎨 **Interface personnalisable**
+- Mode clair/sombre
+- Design responsive (mobile, tablette, desktop)
+- Animations et transitions fluides
 
-Contribution
-Les contributions sont les bienvenues ! Avant de soumettre une pull request, veuillez vous assurer que votre code suit les directives de style du projet et que toutes les fonctionnalités ajoutées sont accompagnées de tests pertinents.Contact
-Pour toute question ou suggestion, veuillez contacter [votre-email@example.com].
-N'hésite pas à adapter ce modèle selon tes besoins spécifiques ou à y ajouter des sections supplémentaires si nécessaire !
+---
+
+## 🗂️ Structure du projet
+
+```
+GourmetTech/
+│
+├── index.html              # Page d'accueil avec liste des recettes
+├── main.js                 # Script principal
+├── style.css               # Styles principaux
+│
+├── html/
+│   ├── recettes.html       # Page de détail d'une recette
+│   ├── favoris.html        # Page des recettes favorites
+│   └── a_propos.html       # Page à propos et contact
+│
+├── js/
+│   ├── utils.js            # Fonctions utilitaires
+│   ├── api-functions.js    # Gestion des appels API
+│   ├── favorites-manager.js # Gestion des favoris
+│   ├── favorites-ui.js     # Interface utilisateur des favoris
+│   ├── recipe-display.js   # Affichage des recettes
+│   └── app-init.js         # Initialisation de l'application
+│
+├── css/
+│   └── benoit.css          # Styles complémentaires
+│
+└── assets/
+    ├── icons/              # Icônes de l'interface
+    └── pictures/           # Images des recettes
+```
+
+---
+
+## 🚀 Installation et lancement
+
+### Prérequis
+- Un navigateur web moderne (Chrome, Firefox, Safari, Edge)
+- Un éditeur de code (VS Code recommandé)
+- Extension Live Server (optionnel mais recommandé)
+
+### Étapes d'installation
+
+1. **Cloner le dépôt**
+```bash
+git clone https://github.com/votre-username/gourmettech.git
+cd gourmettech
+```
+
+2. **Ouvrir le projet**
+   - Ouvrez le dossier dans votre éditeur de code
+   - Lancez `index.html` avec Live Server ou ouvrez-le directement dans votre navigateur
+
+3. **C'est prêt !** 🎉
+   - L'application est prête à être utilisée
+   - Aucune installation de dépendances nécessaire
+
+---
+
+## 💻 Technologies utilisées
+
+- **HTML5** - Structure sémantique des pages
+- **CSS3** - Stylisation et responsive design
+- **JavaScript vanilla (ES6+)** - Logique et interactivité
+- **localStorage** - Sauvegarde des favoris
+- **API TheMealDB** - Recettes internationales
+
+---
+
+## 🎯 Fonctionnalités détaillées
+
+### Page d'accueil
+- Affichage dynamique des recettes locales
+- Système de recherche en temps réel
+- Filtres multiples (catégorie, temps, difficulté)
+- Ajout rapide aux favoris
+
+### Page de détail
+- Informations complètes sur la recette
+- Liste des ingrédients avec quantités
+- Étapes de préparation numérotées
+- Suggestions de recettes similaires via l'API
+- Gestion des favoris
+
+### Page des favoris
+- Liste de toutes les recettes sauvegardées
+- Support des recettes locales et API
+- Suppression rapide des favoris
+- Message si aucun favori
+
+### Page à propos
+- Présentation du projet
+- Formulaire de contact
+- FAQ interactive (accordéon)
+
+---
+
+## 🔧 Détails techniques
+
+### Gestion des favoris
+Les favoris sont stockés dans le `localStorage` du navigateur avec la structure suivante :
+```javascript
+{
+  id: "identifiant-unique",
+  nom: "Nom de la recette",
+  image: "chemin/vers/image.jpg",
+  categorie: "Catégorie",
+  // ... autres informations
+}
+```
+
+### Intégration API
+L'application utilise l'API publique TheMealDB :
+- Recherche de recettes : `https://www.themealdb.com/api/json/v1/1/search.php?s={terme}`
+- Recette aléatoire : `https://www.themealdb.com/api/json/v1/1/random.php`
+- Détails d'une recette : `https://www.themealdb.com/api/json/v1/1/lookup.php?i={id}`
+
+### Responsive Design
+Breakpoints :
+- Mobile : < 768px
+- Tablette : 768px - 992px
+- Desktop : > 992px
+
+---
+
+## 🎨 Personnalisation
+
+### Changer le thème
+Le thème clair/sombre se change via l'icône en haut à droite. La préférence est sauvegardée automatiquement.
+
+### Ajouter des recettes locales
+Pour ajouter des recettes, modifiez le tableau `window.recepies` dans `main.js` :
+```javascript
+{
+  title: "Nom de la recette",
+  img: "assets/pictures/image.jpg",
+  category: "plat",
+  timePrep: "moyen",
+  difficulty: "facile",
+  nbPersonnes: 4,
+  ingredients: [...],
+  etapes: [...]
+}
+```
+
+---
+
+## 🐛 Problèmes connus
+
+- La traduction automatique des recettes API peut parfois être lente
+- Certaines images de l'API peuvent ne pas se charger
+
+---
+
+## 📝 Améliorations futures
+
+- [ ] Système de notation des recettes
+- [ ] Partage de recettes sur les réseaux sociaux
+- [ ] Export des recettes en PDF
+- [ ] Mode impression optimisé
+- [ ] Ajout de recettes personnalisées par l'utilisateur
+
+---
+
+## 👨‍💻 Auteur
+
+Projet réalisé dans le cadre d'une formation en développement web.
+
+---
+
+## 📄 Licence
+
+Ce projet est un projet pédagogique à usage éducatif.
+
+---
+
+## 🙏 Remerciements
+
+- API TheMealDB pour les recettes internationales
+- Google Fonts pour les polices utilisées
+- Tous les testeurs qui ont contribué à améliorer l'application
+
+---
+
+**Bon appétit et bonne découverte culinaire ! 🍳**
