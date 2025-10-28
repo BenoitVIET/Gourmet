@@ -30,9 +30,13 @@ window.recepies = [
     {
         title: "Tarte aux pommes",
         img: "assets/pictures/tart.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
         category: "dessert",
         timePrep: "moyen",
         alt: "apple tart",
+        alt2: "apple tart",
+        alt3: "apple tart",
         difficulty: "facile",
         nbPersonnes: 8,
         ingredients: [
@@ -58,6 +62,8 @@ window.recepies = [
         title: "Quiche à la tomate",
         alt: "Quiche à la tomate",
         img: "assets/pictures/ai-generated-8775126_1280.jpg",
+        img2: "assets/pictures/quiche2.jpg",
+        img3: "assets/pictures/quiche3.jpg",
         category: "plat",
         timePrep: "moyen",
         difficulty: "moyen",
@@ -84,6 +90,8 @@ window.recepies = [
         title: "Velouté de potiron",
         alt: "Velouté de potiron",
         img: "assets/pictures/soup.jpg",
+        img2: "assets/pictures/veloute2.jpg",
+        img3: "assets/pictures/veloute3.jpg",
         category: "entrée",
         timePrep: "rapide",
         difficulty: "moyen",
@@ -108,6 +116,8 @@ window.recepies = [
         title: "Ramen tofu et légumes",
         alt: "Ramen tofu et légumes",
         img: "assets/pictures/tofu.jpg",
+        img2: "assets/pictures/ramen2.jpg",
+        img3: "assets/pictures/ramn3.jpg",
         category: "plat",
         timePrep: "rapide",
         difficulty: "moyen",
@@ -130,367 +140,400 @@ window.recepies = [
             "Assembler dans les bols : nouilles, tofu, légumes, bouillon.",
         ],
     },
-     {
-    title: "Salade de quinoa et légumes",
-    alt: "Salade de quinoa et légumes",
-    img: "assets/pictures/quinoa.jpg",
-    category: "entrée",
-    timePrep: "rapide",
-    difficulty: "facile",
-    nbPersonnes: 4,
-    ingredients: [
-      "100g de quinoa",
-      "1 concombre",
-      "1 poivron",
-      "Tomates cerises",
-      "2 c. à soupe d'huile d'olive",
-      "Sel et poivre"
-    ],
-    etapes: [
-      "Cuire le quinoa selon les instructions.",
-      "Couper les légumes en petits dés.",
-      "Mélanger le quinoa et les légumes.",
-      "Assaisonner avec l'huile, le sel et le poivre."
-    ]
-  },
-  {
-    title: "Velouté de carottes",
-    alt: "Velouté de carottes",
-    img: "assets/pictures/carotte.jpg",
-    category: "entrée",
-    timePrep: "moyen",
-    difficulty: "facile",
-    nbPersonnes: 4,
-    ingredients: [
-      "500g de carottes",
-      "1 oignon",
-      "600ml de bouillon de légumes",
-      "2 c. à soupe de crème végétale",
-      "Sel et poivre"
-    ],
-    etapes: [
-      "Éplucher et couper les carottes et l'oignon.",
-      "Faire revenir l'oignon, ajouter les carottes et le bouillon.",
-      "Cuire 20 min puis mixer.",
-      "Ajouter la crème, saler et poivrer."
-    ]
-  },
-  {
-    title: "Tartines avocat-tomate",
-    alt: "Tartines avocat-tomate",
-    img: "assets/pictures/avocat.jpg",
-    category: "entrée",
-    timePrep: "rapide",
-    difficulty: "facile",
-    nbPersonnes: 2,
-    ingredients: [
-      "2 tranches de pain complet",
-      "1 avocat",
-      "1 tomate",
-      "Sel, poivre, citron"
-    ],
-    etapes: [
-      "Écraser l'avocat et assaisonner avec sel, poivre et citron.",
-      "Étaler sur les tranches de pain.",
-      "Ajouter les tranches de tomate sur le dessus."
-    ]
-  },
-  {
-    title: "Curry de légumes",
-    alt: "Curry de légumes",
-    img: "assets/pictures/curry.jpg",
-    category: "plat",
-    timePrep: "moyen",
-    difficulty: "moyen",
-    nbPersonnes: 4,
-    ingredients: [
-      "1 courgette",
-      "1 aubergine",
-      "1 poivron",
-      "200ml de lait de coco",
-      "2 c. à soupe de curry",
-      "Sel et poivre"
-    ],
-    etapes: [
-      "Couper les légumes en dés.",
-      "Faire revenir les légumes dans une poêle.",
-      "Ajouter le lait de coco et le curry.",
-      "Laisser mijoter 15-20 min.",
-      "Assaisonner avec sel et poivre."
-    ]
-  },
-  {
-    title: "Pâtes aux champignons",
-    alt: "Pâtes aux champignons",
-    img: "assets/pictures/PatesChampignons.jpg",
-    category: "plat",
-    timePrep: "rapide",
-    difficulty: "facile",
-    nbPersonnes: 4,
-    ingredients: [
-      "250g de pâtes",
-      "200g de champignons",
-      "1 gousse d'ail",
-      "2 c. à soupe d'huile d'olive",
-      "Sel et poivre"
-    ],
-    etapes: [
-      "Cuire les pâtes selon les instructions.",
-      "Faire revenir les champignons avec l'ail et l'huile.",
-      "Mélanger les pâtes avec les champignons.",
-      "Assaisonner avec sel et poivre."
-    ]
-  },
-  {
-    title: "Salade de lentilles",
-    alt: "Salade de lentilles",
-    img: "assets/pictures/lentilles.jpg",
-    category: "entrée",
-    timePrep: "rapide",
-    difficulty: "facile",
-    nbPersonnes: 4,
-    ingredients: [
-      "200g de lentilles cuites",
-      "1 carotte",
-      "1 oignon",
-      "2 c. à soupe d'huile d'olive",
-      "Sel et poivre"
-    ],
-    etapes: [
-      "Couper la carotte et l'oignon en petits dés.",
-      "Mélanger avec les lentilles.",
-      "Assaisonner avec l'huile, le sel et le poivre."
-    ]
-  },
-  {
-    title: "Gratin de courgettes",
-    alt: "Gratin de courgettes",
-    img: "assets/pictures/courgettes.jpg",
-    category: "plat",
-    timePrep: "long",
-    difficulty: "moyen",
-    nbPersonnes: 4,
-    ingredients: [
-      "3 courgettes",
-      "200ml de crème végétale",
-      "50g de fromage râpé",
-      "Sel, poivre et muscade"
-    ],
-    etapes: [
-      "Préchauffer le four à 180°C.",
-      "Couper les courgettes en rondelles et les cuire légèrement à la vapeur.",
-      "Mettre les courgettes dans un plat, verser la crème et ajouter le fromage.",
-      "Cuire 30-35 min au four.",
-      "Assaisonner avec sel, poivre et muscade."
-    ]
-  },{
-    title: "Muffins banane-chocolat",
-    alt: "Muffins banane-chocolat",
-    img: "assets/pictures/muffin.jpg",
-    category: "dessert",
-    timePrep: "moyen",
-    difficulty: "facile",
-    nbPersonnes: 6,
-    ingredients: [
-      "2 bananes mûres",
-      "100g de farine complète",
-      "50g de sucre de coco",
-      "50g de pépites de chocolat",
-      "1 c. à soupe d'huile végétale",
-      "1 c. à café de levure"
-    ],
-    etapes: [
-      "Préchauffer le four à 180°C.",
-      "Écraser les bananes et mélanger avec l'huile et le sucre.",
-      "Ajouter la farine, la levure et les pépites.",
-      "Remplir les moules à muffins et cuire 20-25 min."
-    ]
-  },
-  {
-    title: "Brownie aux haricots noirs",
-    alt: "Brownie aux haricots noirs",
-    img: "assets/pictures/brownie.jpg",
-    category: "dessert",
-    timePrep: "moyen",
-    difficulty: "moyen",
-    nbPersonnes: 6,
-    ingredients: [
-      "400g haricots noirs cuits",
-      "50g cacao",
-      "50g sucre",
-      "2 c. à soupe d'huile de coco",
-      "1 c. à café d'extrait de vanille"
-    ],
-    etapes: [
-      "Préchauffer le four à 180°C.",
-      "Mixer tous les ingrédients jusqu'à obtenir une pâte lisse.",
-      "Verser dans un moule et cuire 25-30 min."
-    ]
-  },
-  {
-    title: "Smoothie bowl fruits rouges",
-    alt: "Smoothie bowl fruits rouges",
-    img: "assets/pictures/smoothie.jpg",
-    category: "dessert",
-    timePrep: "rapide",
-    difficulty: "facile",
-    nbPersonnes: 2,
-    ingredients: [
-      "150g fruits rouges",
-      "1 banane",
-      "150ml lait végétal",
-      "1 c. à soupe graines de chia",
-      "1 c. à soupe flocons d'avoine"
-    ],
-    etapes: [
-      "Mixer les fruits rouges, la banane et le lait.",
-      "Verser dans un bol et saupoudrer graines de chia et flocons d'avoine.",
-      "Servir frais."
-    ]
-  },
-  {
-    title: "Burger veggie maison",
-    alt: "Burger veggie maison",
-    img: "assets/pictures/burger.jpg",
-    category: "plat",
-    timePrep: "moyen",
-    difficulty: "moyen",
-    nbPersonnes: 4,
-    ingredients: [
-      "4 pains à burger complets",
-      "4 galettes de lentilles",
-      "Laitue, tomates, oignons",
-      "Sauce yaourt végétal",
-      "Sel et poivre"
-    ],
-    etapes: [
-      "Cuire les galettes de lentilles selon les instructions.",
-      "Toaster les pains légèrement.",
-      "Assembler burgers avec galette, légumes et sauce.",
-      "Servir immédiatement."
-    ]
-  },
-  {
-    title: "Pizza pita rapide",
-    alt: "Pizza pita rapide",
-    img: "assets/pictures/pizza.jpg",
-    category: "plat",
-    timePrep: "rapide",
-    difficulty: "facile",
-    nbPersonnes: 2,
-    ingredients: [
-      "2 pains pita",
-      "100g sauce tomate",
-      "50g fromage râpé",
-      "Légumes au choix"
-    ],
-    etapes: [
-      "Préchauffer le four à 200°C.",
-      "Étaler la sauce tomate sur les pitas.",
-      "Ajouter fromage et légumes.",
-      "Cuire 10-12 min jusqu'à ce que le fromage fonde."
-    ]
-  },
-  {
-    title: "Frites de patate douce au four",
-    alt: "Frites de patate douce au four",
-    img: "assets/pictures/frites.jpg",
-    category: "plat",
-    timePrep: "moyen",
-    difficulty: "facile",
-    nbPersonnes: 4,
-    ingredients: [
-      "2 patates douces",
-      "1 c. à soupe huile d'olive",
-      "Sel, paprika"
-    ],
-    etapes: [
-      "Préchauffer le four à 200°C.",
-      "Couper les patates en frites et mélanger avec huile et épices.",
-      "Étaler sur une plaque et cuire 25-30 min en retournant à mi-cuisson."
-    ]
-  },
-  {
-    title: "Wraps végétariens",
-    alt: "Wraps végétariens",
-    img: "assets/pictures/wrap.jpg",
-    category: "plat",
-    timePrep: "rapide",
-    difficulty: "facile",
-    nbPersonnes: 2,
-    ingredients: [
-      "2 tortillas complètes",
-      "Houmous",
-      "Légumes crus (carottes, concombre, poivron)",
-      "Feuilles de salade"
-    ],
-    etapes: [
-      "Étaler le houmous sur les tortillas.",
-      "Ajouter légumes et salade.",
-      "Rouler et couper en deux."
-    ]
-  },
-  {
-    title: "Cookies avoine & chocolat",
-    alt: "Cookies avoine & chocolat",
-    img: "assets/pictures/cookies.jpg",
-    category: "dessert",
-    timePrep: "rapide",
-    difficulty: "facile",
-    nbPersonnes: 6,
-    ingredients: [
-      "150g flocons d'avoine",
-      "50g sucre de coco",
-      "50g pépites de chocolat",
-      "1 banane écrasée",
-      "1 c. à soupe huile végétale"
-    ],
-    etapes: [
-      "Préchauffer le four à 180°C.",
-      "Mélanger tous les ingrédients.",
-      "Former des petits tas sur une plaque et cuire 12-15 min."
-    ]
-  },
-  {
-    title: "Energy balls cacao-noix",
-    alt: "Energy balls cacao-noix",
-    img: "assets/pictures/energyBall.jpg",
-    category: "dessert",
-    timePrep: "rapide",
-    difficulty: "facile",
-    nbPersonnes: 4,
-    ingredients: [
-      "100g dattes dénoyautées",
-      "50g noix",
-      "1 c. à soupe cacao",
-      "1 c. à soupe flocons d'avoine"
-    ],
-    etapes: [
-      "Mixer tous les ingrédients jusqu'à obtenir une pâte collante.",
-      "Former des petites boules et réfrigérer 30 min avant de servir."
-    ]
-  },
-  {
-    title: "Granola maison",
-    alt: "Granola maison",
-    img: "assets/pictures/granola.jpg",
-    category: "dessert",
-    timePrep: "moyen",
-    difficulty: "facile",
-    nbPersonnes: 6,
-    ingredients: [
-      "150g flocons d'avoine",
-      "50g amandes",
-      "30g sirop d'agave",
-      "1 c. à soupe huile coco",
-      "1 c. à café cannelle"
-    ],
-    etapes: [
-      "Préchauffer le four à 160°C.",
-      "Mélanger tous les ingrédients et étaler sur une plaque.",
-      "Cuire 20-25 min en remuant à mi-cuisson."
-    ]
-  },
+    {
+        title: "Salade de quinoa et légumes",
+        alt: "Salade de quinoa et légumes",
+        img: "assets/pictures/quinoa.jpg",
+        img2: "assets/pictures/quinoa2.jpg",
+        img3: "assets/pictures/quinoa3.jpg",
+        category: "entrée",
+        timePrep: "rapide",
+        difficulty: "facile",
+        nbPersonnes: 4,
+        ingredients: [
+            "100g de quinoa",
+            "1 concombre",
+            "1 poivron",
+            "Tomates cerises",
+            "2 c. à soupe d'huile d'olive",
+            "Sel et poivre",
+        ],
+        etapes: [
+            "Cuire le quinoa selon les instructions.",
+            "Couper les légumes en petits dés.",
+            "Mélanger le quinoa et les légumes.",
+            "Assaisonner avec l'huile, le sel et le poivre.",
+        ],
+    },
+    {
+        title: "Velouté de carottes",
+        alt: "Velouté de carottes",
+        img: "assets/pictures/carotte.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "entrée",
+        timePrep: "moyen",
+        difficulty: "facile",
+        nbPersonnes: 4,
+        ingredients: [
+            "500g de carottes",
+            "1 oignon",
+            "600ml de bouillon de légumes",
+            "2 c. à soupe de crème végétale",
+            "Sel et poivre",
+        ],
+        etapes: [
+            "Éplucher et couper les carottes et l'oignon.",
+            "Faire revenir l'oignon, ajouter les carottes et le bouillon.",
+            "Cuire 20 min puis mixer.",
+            "Ajouter la crème, saler et poivrer.",
+        ],
+    },
+    {
+        title: "Tartines avocat-tomate",
+        alt: "Tartines avocat-tomate",
+        img: "assets/pictures/avocat.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "entrée",
+        timePrep: "rapide",
+        difficulty: "facile",
+        nbPersonnes: 2,
+        ingredients: [
+            "2 tranches de pain complet",
+            "1 avocat",
+            "1 tomate",
+            "Sel, poivre, citron",
+        ],
+        etapes: [
+            "Écraser l'avocat et assaisonner avec sel, poivre et citron.",
+            "Étaler sur les tranches de pain.",
+            "Ajouter les tranches de tomate sur le dessus.",
+        ],
+    },
+    {
+        title: "Curry de légumes",
+        alt: "Curry de légumes",
+        img: "assets/pictures/curry.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "plat",
+        timePrep: "moyen",
+        difficulty: "moyen",
+        nbPersonnes: 4,
+        ingredients: [
+            "1 courgette",
+            "1 aubergine",
+            "1 poivron",
+            "200ml de lait de coco",
+            "2 c. à soupe de curry",
+            "Sel et poivre",
+        ],
+        etapes: [
+            "Couper les légumes en dés.",
+            "Faire revenir les légumes dans une poêle.",
+            "Ajouter le lait de coco et le curry.",
+            "Laisser mijoter 15-20 min.",
+            "Assaisonner avec sel et poivre.",
+        ],
+    },
+    {
+        title: "Pâtes aux champignons",
+        alt: "Pâtes aux champignons",
+        img: "assets/pictures/PatesChampignons.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "plat",
+        timePrep: "rapide",
+        difficulty: "facile",
+        nbPersonnes: 4,
+        ingredients: [
+            "250g de pâtes",
+            "200g de champignons",
+            "1 gousse d'ail",
+            "2 c. à soupe d'huile d'olive",
+            "Sel et poivre",
+        ],
+        etapes: [
+            "Cuire les pâtes selon les instructions.",
+            "Faire revenir les champignons avec l'ail et l'huile.",
+            "Mélanger les pâtes avec les champignons.",
+            "Assaisonner avec sel et poivre.",
+        ],
+    },
+    {
+        title: "Salade de lentilles",
+        alt: "Salade de lentilles",
+        img: "assets/pictures/lentilles.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "entrée",
+        timePrep: "rapide",
+        difficulty: "facile",
+        nbPersonnes: 4,
+        ingredients: [
+            "200g de lentilles cuites",
+            "1 carotte",
+            "1 oignon",
+            "2 c. à soupe d'huile d'olive",
+            "Sel et poivre",
+        ],
+        etapes: [
+            "Couper la carotte et l'oignon en petits dés.",
+            "Mélanger avec les lentilles.",
+            "Assaisonner avec l'huile, le sel et le poivre.",
+        ],
+    },
+    {
+        title: "Gratin de courgettes",
+        alt: "Gratin de courgettes",
+        img: "assets/pictures/courgettes.jpg",
+        category: "plat",
+        timePrep: "long",
+        difficulty: "moyen",
+        nbPersonnes: 4,
+        ingredients: [
+            "3 courgettes",
+            "200ml de crème végétale",
+            "50g de fromage râpé",
+            "Sel, poivre et muscade",
+        ],
+        etapes: [
+            "Préchauffer le four à 180°C.",
+            "Couper les courgettes en rondelles et les cuire légèrement à la vapeur.",
+            "Mettre les courgettes dans un plat, verser la crème et ajouter le fromage.",
+            "Cuire 30-35 min au four.",
+            "Assaisonner avec sel, poivre et muscade.",
+        ],
+    },
+    {
+        title: "Muffins banane-chocolat",
+        alt: "Muffins banane-chocolat",
+        img: "assets/pictures/muffin.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "dessert",
+        timePrep: "moyen",
+        difficulty: "facile",
+        nbPersonnes: 6,
+        ingredients: [
+            "2 bananes mûres",
+            "100g de farine complète",
+            "50g de sucre de coco",
+            "50g de pépites de chocolat",
+            "1 c. à soupe d'huile végétale",
+            "1 c. à café de levure",
+        ],
+        etapes: [
+            "Préchauffer le four à 180°C.",
+            "Écraser les bananes et mélanger avec l'huile et le sucre.",
+            "Ajouter la farine, la levure et les pépites.",
+            "Remplir les moules à muffins et cuire 20-25 min.",
+        ],
+    },
+    {
+        title: "Brownie aux haricots noirs",
+        alt: "Brownie aux haricots noirs",
+        img: "assets/pictures/brownie.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "dessert",
+        timePrep: "moyen",
+        difficulty: "moyen",
+        nbPersonnes: 6,
+        ingredients: [
+            "400g haricots noirs cuits",
+            "50g cacao",
+            "50g sucre",
+            "2 c. à soupe d'huile de coco",
+            "1 c. à café d'extrait de vanille",
+        ],
+        etapes: [
+            "Préchauffer le four à 180°C.",
+            "Mixer tous les ingrédients jusqu'à obtenir une pâte lisse.",
+            "Verser dans un moule et cuire 25-30 min.",
+        ],
+    },
+    {
+        title: "Smoothie bowl fruits rouges",
+        alt: "Smoothie bowl fruits rouges",
+        img: "assets/pictures/smoothie.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "dessert",
+        timePrep: "rapide",
+        difficulty: "facile",
+        nbPersonnes: 2,
+        ingredients: [
+            "150g fruits rouges",
+            "1 banane",
+            "150ml lait végétal",
+            "1 c. à soupe graines de chia",
+            "1 c. à soupe flocons d'avoine",
+        ],
+        etapes: [
+            "Mixer les fruits rouges, la banane et le lait.",
+            "Verser dans un bol et saupoudrer graines de chia et flocons d'avoine.",
+            "Servir frais.",
+        ],
+    },
+    {
+        title: "Burger veggie maison",
+        alt: "Burger veggie maison",
+        img: "assets/pictures/burger.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "plat",
+        timePrep: "moyen",
+        difficulty: "moyen",
+        nbPersonnes: 4,
+        ingredients: [
+            "4 pains à burger complets",
+            "4 galettes de lentilles",
+            "Laitue, tomates, oignons",
+            "Sauce yaourt végétal",
+            "Sel et poivre",
+        ],
+        etapes: [
+            "Cuire les galettes de lentilles selon les instructions.",
+            "Toaster les pains légèrement.",
+            "Assembler burgers avec galette, légumes et sauce.",
+            "Servir immédiatement.",
+        ],
+    },
+    {
+        title: "Pizza pita rapide",
+        alt: "Pizza pita rapide",
+        img: "assets/pictures/pizza.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "plat",
+        timePrep: "rapide",
+        difficulty: "facile",
+        nbPersonnes: 2,
+        ingredients: [
+            "2 pains pita",
+            "100g sauce tomate",
+            "50g fromage râpé",
+            "Légumes au choix",
+        ],
+        etapes: [
+            "Préchauffer le four à 200°C.",
+            "Étaler la sauce tomate sur les pitas.",
+            "Ajouter fromage et légumes.",
+            "Cuire 10-12 min jusqu'à ce que le fromage fonde.",
+        ],
+    },
+    {
+        title: "Frites de patate douce au four",
+        alt: "Frites de patate douce au four",
+        img: "assets/pictures/frites.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "plat",
+        timePrep: "moyen",
+        difficulty: "facile",
+        nbPersonnes: 4,
+        ingredients: [
+            "2 patates douces",
+            "1 c. à soupe huile d'olive",
+            "Sel, paprika",
+        ],
+        etapes: [
+            "Préchauffer le four à 200°C.",
+            "Couper les patates en frites et mélanger avec huile et épices.",
+            "Étaler sur une plaque et cuire 25-30 min en retournant à mi-cuisson.",
+        ],
+    },
+    {
+        title: "Wraps végétariens",
+        alt: "Wraps végétariens",
+        img: "assets/pictures/wrap.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "plat",
+        timePrep: "rapide",
+        difficulty: "facile",
+        nbPersonnes: 2,
+        ingredients: [
+            "2 tortillas complètes",
+            "Houmous",
+            "Légumes crus (carottes, concombre, poivron)",
+            "Feuilles de salade",
+        ],
+        etapes: [
+            "Étaler le houmous sur les tortillas.",
+            "Ajouter légumes et salade.",
+            "Rouler et couper en deux.",
+        ],
+    },
+    {
+        title: "Cookies avoine & chocolat",
+        alt: "Cookies avoine & chocolat",
+        img: "assets/pictures/cookies.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "dessert",
+        timePrep: "rapide",
+        difficulty: "facile",
+        nbPersonnes: 6,
+        ingredients: [
+            "150g flocons d'avoine",
+            "50g sucre de coco",
+            "50g pépites de chocolat",
+            "1 banane écrasée",
+            "1 c. à soupe huile végétale",
+        ],
+        etapes: [
+            "Préchauffer le four à 180°C.",
+            "Mélanger tous les ingrédients.",
+            "Former des petits tas sur une plaque et cuire 12-15 min.",
+        ],
+    },
+    {
+        title: "Energy balls cacao-noix",
+        alt: "Energy balls cacao-noix",
+        img: "assets/pictures/energyBall.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "dessert",
+        timePrep: "rapide",
+        difficulty: "facile",
+        nbPersonnes: 4,
+        ingredients: [
+            "100g dattes dénoyautées",
+            "50g noix",
+            "1 c. à soupe cacao",
+            "1 c. à soupe flocons d'avoine",
+        ],
+        etapes: [
+            "Mixer tous les ingrédients jusqu'à obtenir une pâte collante.",
+            "Former des petites boules et réfrigérer 30 min avant de servir.",
+        ],
+    },
+    {
+        title: "Granola maison",
+        alt: "Granola maison",
+        img: "assets/pictures/granola.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
+        category: "dessert",
+        timePrep: "moyen",
+        difficulty: "facile",
+        nbPersonnes: 6,
+        ingredients: [
+            "150g flocons d'avoine",
+            "50g amandes",
+            "30g sirop d'agave",
+            "1 c. à soupe huile coco",
+            "1 c. à café cannelle",
+        ],
+        etapes: [
+            "Préchauffer le four à 160°C.",
+            "Mélanger tous les ingrédients et étaler sur une plaque.",
+            "Cuire 20-25 min en remuant à mi-cuisson.",
+        ],
+    },
     {
         title: "Banana Bread",
         alt: "Banana Bread",
@@ -520,6 +563,8 @@ window.recepies = [
         title: "Hummus",
         alt: "Hummus",
         img: "assets/pictures/hummus.jpg",
+        img2: "assets/pictures/tart2.jpg",
+        img3: "assets/pictures/tarte3.jpg",
         category: "entrée",
         timePrep: "rapide",
         difficulty: "facile",
@@ -541,8 +586,6 @@ window.recepies = [
         ],
     },
 ];
-
-
 
 const filterCategories = document.querySelectorAll(".entryFilter input");
 const filterTimes = document.querySelectorAll(".prepTimeFilter input");
@@ -673,58 +716,87 @@ closeBtnMenu.addEventListener("click", function () {
 
 // Affichage des cartes de recettes locales et navigation vers recettes.html
 for (let recepie of window.recepies) {
-  const recept = eachCard.content.cloneNode(true);
-  recept.querySelector("h3").textContent = recepie.title;
-  recept.querySelector(".recepieLevel").textContent = recepie.difficulty;
-  recept.querySelector(".recepieTime").textContent = recepie.timePrep;
-  recept.querySelector(".recepieCat").textContent = recepie.category;
-  recept.querySelector(".mealPic").src = recepie.img;
-  recept.querySelector(".mealPic").alt = recepie.alt;
+    const recept = eachCard.content.cloneNode(true);
+    recept.querySelector("h3").textContent = recepie.title;
+    recept.querySelector(".recepieLevel").textContent = recepie.difficulty;
+    recept.querySelector(".recepieTime").textContent = recepie.timePrep;
+    recept.querySelector(".recepieCat").textContent = recepie.category;
+    recept.querySelector(".mealPic").src = recepie.img;
+    recept.querySelector(".mealPic2").src = recepie.img2;
+    recept.querySelector(".mealPic3").src = recepie.img3;
+    recept.querySelector(".mealPic").alt = recepie.alt;
+    recept.querySelector(".mealPic2").alt = recepie.alt2;
+    recept.querySelector(".mealPic3").alt = recepie.alt3;
 
-  // Bouton favoris
-  const heartButton = recept.querySelector(".heart-button");
-  if (heartButton) {
-    const recipeId = recepie.title.toLowerCase().replace(/\s+/g, "").replace(/[^a-z0-9]/g, "");
-    let favorites = [];
-    try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
-    const isFavorite = favorites.some(fav => fav.id === recipeId);
-    heartButton.src = isFavorite ? "assets/icons/redHeart.png" : "assets/icons/grayHeart.png";
-    heartButton.alt = isFavorite ? "Retirer des favoris" : "Ajouter aux favoris";
-    heartButton.addEventListener("click", function (e) {
-      e.stopPropagation();
-      let favorites = [];
-      try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
-      const index = favorites.findIndex(fav => fav.id === recipeId);
-      if (index === -1) {
-        favorites.push({ id: recipeId });
-        heartButton.src = "assets/icons/redHeart.png";
-        heartButton.alt = "Retirer des favoris";
-        if (typeof showNotification === 'function') {
-          showNotification(`✅ "${recepie.title}" ajouté aux favoris !`, 'add');
-        }
-      } else {
-        favorites.splice(index, 1);
-        heartButton.src = "assets/icons/grayHeart.png";
-        heartButton.alt = "Ajouter aux favoris";
-        if (typeof showNotification === 'function') {
-          showNotification(`❌ "${recepie.title}" retiré des favoris !`, 'remove');
-        }
-      }
-      localStorage.setItem('gourmet-favorites', JSON.stringify(favorites));
-    });
-  }
+    // Bouton favoris
+    const heartButton = recept.querySelector(".heart-button");
+    if (heartButton) {
+        const recipeId = recepie.title
+            .toLowerCase()
+            .replace(/\s+/g, "")
+            .replace(/[^a-z0-9]/g, "");
+        let favorites = [];
+        try {
+            favorites =
+                JSON.parse(localStorage.getItem("gourmet-favorites")) || [];
+        } catch (e) {}
+        const isFavorite = favorites.some((fav) => fav.id === recipeId);
+        heartButton.src = isFavorite
+            ? "assets/icons/redHeart.png"
+            : "assets/icons/grayHeart.png";
+        heartButton.alt = isFavorite
+            ? "Retirer des favoris"
+            : "Ajouter aux favoris";
+        heartButton.addEventListener("click", function (e) {
+            e.stopPropagation();
+            let favorites = [];
+            try {
+                favorites =
+                    JSON.parse(localStorage.getItem("gourmet-favorites")) || [];
+            } catch (e) {}
+            const index = favorites.findIndex((fav) => fav.id === recipeId);
+            if (index === -1) {
+                favorites.push({ id: recipeId });
+                heartButton.src = "assets/icons/redHeart.png";
+                heartButton.alt = "Retirer des favoris";
+                if (typeof showNotification === "function") {
+                    showNotification(
+                        `✅ "${recepie.title}" ajouté aux favoris !`,
+                        "add"
+                    );
+                }
+            } else {
+                favorites.splice(index, 1);
+                heartButton.src = "assets/icons/grayHeart.png";
+                heartButton.alt = "Ajouter aux favoris";
+                if (typeof showNotification === "function") {
+                    showNotification(
+                        `❌ "${recepie.title}" retiré des favoris !`,
+                        "remove"
+                    );
+                }
+            }
+            localStorage.setItem(
+                "gourmet-favorites",
+                JSON.stringify(favorites)
+            );
+        });
+    }
 
-  // Bouton voir la recette
-  const viewButton = recept.querySelector(".recetteButton");
-  if (viewButton) {
-    const recipeId = recepie.title.toLowerCase().replace(/\s+/g, "").replace(/[^a-z0-9]/g, "");
-    viewButton.addEventListener("click", function (e) {
-      e.preventDefault();
-      window.location.href = `html/recettes.html?recette=${recipeId}`;
-    });
-  }
+    // Bouton voir la recette
+    const viewButton = recept.querySelector(".recetteButton");
+    if (viewButton) {
+        const recipeId = recepie.title
+            .toLowerCase()
+            .replace(/\s+/g, "")
+            .replace(/[^a-z0-9]/g, "");
+        viewButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = `html/recettes.html?recette=${recipeId}`;
+        });
+    }
 
-  content.appendChild(recept);
+    content.appendChild(recept);
 }
 
 // ------------------------
@@ -802,4 +874,20 @@ buttonSearch.addEventListener("click", function (e) {
     e.preventDefault();
     console.log(recepieSearch.value);
     findRecepie();
+});
+
+let image1 = document.querySelector(".mealPic");
+let image2 = document.querySelector(".mealPic2");
+let image3 = document.querySelector(".mealPic3");
+
+
+
+image2.addEventListener("click", function() {
+    console.log("image2");
+    image2.src = recepies[0].img;
+    image1.src = recepies[0].img2;
+});
+
+image3.addEventListener("click", function () {
+    console.log("image3");
 });

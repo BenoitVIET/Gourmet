@@ -1,3 +1,7 @@
+
+
+
+
 /**
  * Traduit une recette API si besoin
  */
@@ -129,3 +133,6 @@ window.viewFavoriteRecipe = viewFavoriteRecipe;
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { afficherFavoris, createFavoriteCard, translateApiRecipe, removeFavoriteInstant, viewFavoriteRecipe };
 }
+
+// mettre le bouton fav différent si non favoris
+

@@ -115,6 +115,12 @@ class FavoritesManager {
         return favorites.some(fav => fav.id === recetteId);
     }
 
+
+
+
+
+
+
     /**
      * Ajouter une recette locale aux favoris
      */
@@ -502,3 +508,6 @@ window.afficherFavoris = afficherFavoris;
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { FavoritesManager, favoritesManager };
 }
+
+
+l

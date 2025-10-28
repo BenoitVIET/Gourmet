@@ -1,9 +1,18 @@
-/* ----------- FAVORIS.HTML ----------- */
+:root {
+    --color1: #ffffff;
+    --color2: #000000;
+    --color3: #e67f21;
+}
+
 .fade-out {
     opacity: 0;
     transform: scale(0.95);
     transition: opacity 0.4s, transform 0.4s;
 }
+#favoriButton:hover{
+background-color:color-mix(in srgb, var(--color3) 50%, white 20%);
+}
+
 .recepies {
     display: flex;
     flex-wrap: wrap;
@@ -14,7 +23,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
-    width: 100%;
+    width: 90vw;
+    
 }
 
 .card {
@@ -22,13 +32,13 @@
     border-radius: 15px;
     box-shadow: 0 2px 8px var(--color2);
     padding: 15px;
-    margin: 2vh 0;
+    margin: 3vh 0;
     width: 30%;
     position: relative;
     transition: transform 0.2s;
     display: flex;
     flex-direction: column;
-     margin: auto;
+   
 }
 
 .heart-buttonDiv {
@@ -149,6 +159,10 @@
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
+
+
+
 
 @media (max-width: 768px) {
     .ingredients-etapes-grid {

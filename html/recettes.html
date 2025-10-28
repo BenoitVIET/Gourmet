@@ -162,6 +162,7 @@
             try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
             const isFavorite = favorites.some(fav => fav.id === recetteId);
             btn.textContent = isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris';
+            btn.style.backgroundColor = isFavorite ? 'red' : 'green';
             btn.onclick = function () {
                 let favorites = [];
                 try { favorites = JSON.parse(localStorage.getItem('gourmet-favorites')) || []; } catch (e) {}
@@ -169,9 +170,11 @@
                 if (index === -1) {
                     favorites.push({ id: recetteId });
                     btn.textContent = 'Retirer des favoris';
+                    btn.style.backgroundColor = 'red' 
                 } else {
                     favorites.splice(index, 1);
                     btn.textContent = 'Ajouter aux favoris';
+                     btn.style.backgroundColor = 'green' 
                 }
                 localStorage.setItem('gourmet-favorites', JSON.stringify(favorites));
             };
