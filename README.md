@@ -1,5 +1,7 @@
 # 🍽️ GourmetTech
 
+Lien : https://benoitviet.github.io/Gourmet/
+
 **Plateforme de recettes culinaires interactive**
 
 Une application web permettant de découvrir, rechercher et gérer ses recettes favorites, développée dans le cadre d'un projet pédagogique.
@@ -200,7 +202,7 @@ Pour ajouter des recettes, modifiez le tableau `window.recepies` dans `main.js` 
 
 ## 👨‍💻 Auteur
 
-Projet réalisé par Benopît et Laura dans le cadre d'une formation en développement web.
+Projet réalisé par Benoît et Laura dans le cadre d'une formation en développement web.
 
 ---
 
@@ -215,7 +217,7 @@ Ce projet est un projet pédagogique à usage éducatif.
 - API TheMealDB pour les recettes internationales
 - Google Fonts pour les polices utilisées
 - Tous les testeurs qui ont contribué à améliorer l'application
-- remerciement à Maheva et Bertrant, nos formateurs dévoués corps et âmes durant ce projet.
+- remerciement à Maheva et Bertrand, nos formateurs dévoués corps et âmes durant ce projet.
 
 ---
 
