@@ -718,21 +718,86 @@ closeBtnMenu.addEventListener("click", function () {
 // afficher les recettes depuis le tableau:
 // -------------------------
 
+// ------------------------
+// afficher les recettes depuis le tableau:
+// -------------------------
+
 // Affichage des cartes de recettes locales et navigation vers recettes.html
 for (let recepie of window.recepies) {
     const recept = eachCard.content.cloneNode(true);
+    
+    // Infos de base
     recept.querySelector("h3").textContent = recepie.title;
     recept.querySelector(".recepieLevel").textContent = recepie.difficulty;
     recept.querySelector(".recepieTime").textContent = recepie.timePrep;
     recept.querySelector(".recepieCat").textContent = recepie.category;
-    recept.querySelector(".mealPic").src = recepie.img;
-    recept.querySelector(".mealPic2").src = recepie.img2;
-    recept.querySelector(".mealPic3").src = recepie.img3;
-    recept.querySelector(".mealPic").alt = recepie.alt;
-    recept.querySelector(".mealPic2").alt = recepie.alt2;
-    recept.querySelector(".mealPic3").alt = recepie.alt3;
 
-    // Bouton favoris
+    // === CAROUSEL: Récupérer les éléments de CETTE carte ===
+    const slides = recept.querySelectorAll(".slides");
+    const dots = recept.querySelectorAll(".dot");
+    
+    // Définir les images pour chaque slide
+    const images = [recepie.img, recepie.img2, recepie.img3];
+    const alts = [recepie.alt, recepie.alt2, recepie.alt3];
+    
+    slides.forEach((slide, index) => {
+        const img = slide.querySelector("img");
+        if (img && images[index]) {
+            img.src = images[index];
+            img.alt = alts[index] || recepie.alt;
+        }
+    });
+
+    // Variable locale pour l'index de ce carousel
+    let currentSlideIndex = 0;
+
+    // Fonction pour afficher une slide spécifique
+    function showSlide(index) {
+        // Gérer le dépassement (boucle circulaire)
+        if (index >= slides.length) {
+            currentSlideIndex = 0;
+        } else if (index < 0) {
+            currentSlideIndex = slides.length - 1;
+        } else {
+            currentSlideIndex = index;
+        }
+        
+        // Cacher toutes les slides
+        slides.forEach(slide => {
+            slide.style.display = "none";
+        });
+        
+        // Retirer la classe active de tous les dots
+        dots.forEach(dot => {
+            dot.classList.remove("active");
+        });
+        
+        // Afficher la slide actuelle
+        if (slides[currentSlideIndex]) {
+            slides[currentSlideIndex].style.display = "block";
+        }
+        
+        // Activer le dot correspondant
+        if (dots[currentSlideIndex]) {
+            dots[currentSlideIndex].classList.add("active");
+        }
+    }
+
+    // Initialiser: afficher la première slide
+    showSlide(0);
+
+    // Event listeners pour les dots
+    dots.forEach((dot, index) => {
+        // Enlever le onclick du HTML
+        dot.removeAttribute("onclick");
+        
+        dot.addEventListener("click", function(e) {
+            e.stopPropagation();
+            showSlide(index);
+        });
+    });
+
+    // === BOUTON FAVORIS ===
     const heartButton = recept.querySelector(".heart-button");
     if (heartButton) {
         const recipeId = recepie.title
@@ -741,22 +806,19 @@ for (let recepie of window.recepies) {
             .replace(/[^a-z0-9]/g, "");
         let favorites = [];
         try {
-            favorites =
-                JSON.parse(localStorage.getItem("gourmet-favorites")) || [];
+            favorites = JSON.parse(localStorage.getItem("gourmet-favorites")) || [];
         } catch (e) {}
         const isFavorite = favorites.some((fav) => fav.id === recipeId);
         heartButton.src = isFavorite
             ? "assets/icons/redHeart.png"
             : "assets/icons/grayHeart.png";
-        heartButton.alt = isFavorite
-            ? "Retirer des favoris"
-            : "Ajouter aux favoris";
+        heartButton.alt = isFavorite ? "Retirer des favoris" : "Ajouter aux favoris";
+        
         heartButton.addEventListener("click", function (e) {
             e.stopPropagation();
             let favorites = [];
             try {
-                favorites =
-                    JSON.parse(localStorage.getItem("gourmet-favorites")) || [];
+                favorites = JSON.parse(localStorage.getItem("gourmet-favorites")) || [];
             } catch (e) {}
             const index = favorites.findIndex((fav) => fav.id === recipeId);
             if (index === -1) {
@@ -764,30 +826,21 @@ for (let recepie of window.recepies) {
                 heartButton.src = "assets/icons/redHeart.png";
                 heartButton.alt = "Retirer des favoris";
                 if (typeof showNotification === "function") {
-                    showNotification(
-                        `✅ "${recepie.title}" ajouté aux favoris !`,
-                        "add"
-                    );
+                    showNotification(`✅ "${recepie.title}" ajouté aux favoris !`, "add");
                 }
             } else {
                 favorites.splice(index, 1);
                 heartButton.src = "assets/icons/grayHeart.png";
                 heartButton.alt = "Ajouter aux favoris";
                 if (typeof showNotification === "function") {
-                    showNotification(
-                        `❌ "${recepie.title}" retiré des favoris !`,
-                        "remove"
-                    );
+                    showNotification(`❌ "${recepie.title}" retiré des favoris !`, "remove");
                 }
             }
-            localStorage.setItem(
-                "gourmet-favorites",
-                JSON.stringify(favorites)
-            );
+            localStorage.setItem("gourmet-favorites", JSON.stringify(favorites));
         });
     }
 
-    // Bouton voir la recette
+    // === BOUTON VOIR LA RECETTE ===
     const viewButton = recept.querySelector(".recetteButton");
     if (viewButton) {
         const recipeId = recepie.title
@@ -800,8 +853,11 @@ for (let recepie of window.recepies) {
         });
     }
 
+    // ✓ AJOUTER LA CARTE AU DOM (C'ÉTAIT MANQUANT!)
     content.appendChild(recept);
 }
+
+
 
 // ------------------------
 // filter les recettes

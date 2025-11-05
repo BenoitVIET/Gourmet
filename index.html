@@ -191,12 +191,19 @@
                 <div id="content"></div>
                 <template class="eachCard">
                     <div class="card">
-                        <img data-picture="0"class="mealPic" src="" alt="" />
-                        <div class="moreImages">
-                            <img data-picture="1" class="mealPic2 " src="" alt="" />
-                            <img data-picture="2" class="mealPic3" src="" alt="" />
-                        </div>
-                        <div class="heart-buttonDiv">
+                       <div class="slides"> <img data-picture="0" src="" alt="" class="mealPic"/></div>
+                       <div class="slides"> <img data-picture="1"  src="" alt="" class="mealPic2"/></div> 
+                       <div class="slides"> <img data-picture="2"  src="" alt="" class="mealPic3"/></div>
+                        <!-- The dots/circles -->
+                    <div class="dots">
+                        <span class="dot" ></span>
+                        <span class="dot" ></span>
+                        <span class="dot"></span>
+                    </div>
+
+
+
+                    <div class="heart-buttonDiv">
                             <img
                                 class="heart-button"
                                 src="assets/icons/grayHeart.png"
@@ -264,3 +271,35 @@
         </footer>
     </body>
 </html>
+
+<!-- 
+
+ <template class="eachCard">
+                    <div class="card">
+                        <img data-picture="0"class="mealPic" src="" alt="" />
+                        <div class="moreImages">
+                            <img data-picture="1" class="mealPic2 " src="" alt="" />
+                            <img data-picture="2" class="mealPic3" src="" alt="" />
+                        </div>
+                        <div class="heart-buttonDiv">
+                            <img
+                                class="heart-button"
+                                src="assets/icons/grayHeart.png"
+                                alt="Favori"
+                                style="cursor: pointer"
+                            />
+                        </div>
+
+                        <div class="recepiePresentation recette-header-index">
+                            <h3></h3>
+                            <div class="infoRecepie">
+                                <p class="recepieCat"></p>
+                                <p class="recepieTime"></p>
+                                <p class="recepieLevel"></p>
+                            </div>
+                            <button class="recetteButton">
+                                Voir la recette
+                            </button>
+                        </div>
+                    </div>
+                </template> -->

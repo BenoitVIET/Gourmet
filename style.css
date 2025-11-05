@@ -260,7 +260,7 @@ a {
 
 .filters {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
 }
 .recepie form {
@@ -371,12 +371,6 @@ main {
     transition: transform 0.2s;
 }
 
-.mealPic {
-    width: 100%;
-    height: 25vh;
-    object-fit: cover;
-    object-position: top;
-}
 
 .moreImages {
     display: flex;
@@ -392,20 +386,56 @@ main {
     opacity: 0.5;
 }
 
-.mealPic2,
-.mealPic3 {
-    width: 50%;
-    height: 15vh;
-    object-fit: cover;
-    object-position: top;
-    margin: 1px;
+/* Carousel */
+.card {
+    position: relative;
+}
+
+.slides {
+    display: none; /* Cachées par défaut */
+}
+
+.slides img {
+    width: 100%;
+    height: 25vh;
     object-fit: cover;
     object-position: top;
 }
-.mealPic2:hover,
-.mealPic3:hover{
+
+/* Conteneur des dots */
+.dots-container {
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Les dots */
+
+.dots{
+    position: absolute;
+    display: flex;
+    top: 48%;
+    left: 50%;
+    transform: translatex(-50%);
+   
+}
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
     cursor: pointer;
-    transition: 0.2s;
+    transition: background-color 0.3s ease;
+    border: 0.2px solid #bbb;
+}
+
+.dot:hover {
+    background-color: #717171;
+}
+
+.dot.active {
+    background-color: var(--color3); /* Ta couleur orange */
 }
 
 .heart-buttonDiv {
@@ -620,9 +650,13 @@ form {
         margin: auto;
     }
 
-    .mealPic {
+    .slides img {
         height: 50vh;
     }
+    .dots {
+        top: 63%;
+    }
+    
 }
 
 /* -----------
